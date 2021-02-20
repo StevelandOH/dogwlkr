@@ -35,7 +35,6 @@ function ProfileButton({ user }) {
                 onMouseLeave={() => setShowMenu(false)}
             >
                 <i className="fas fa-bone" />
-                WLKR info
             </button>
             {showMenu && (
                 <ul
