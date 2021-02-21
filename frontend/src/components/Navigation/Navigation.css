@@ -1,0 +1,13 @@
+.session-links {
+    width: 100px;
+    align-items: center;
+}
+
+#nav {
+    width: 100%;
+}
+
+#nav li NavLink {
+    display: block;
+    padding: 50px;
+}

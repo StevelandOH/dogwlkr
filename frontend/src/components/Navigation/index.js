@@ -20,14 +20,15 @@ function Navigation({ isLoaded }) {
     }
 
     return (
-        <ul>
-            <li>
-                <NavLink exact to="/">
-                    Home
+        <nav className="nav">
+            <img src="/Users/stephen/Desktop/dogwlkr/frontend/src/images/top-screen-logo.png"></img>
+            <div className="home-button">
+                <NavLink className="home-link" exact to="/">
+                    Dogwlkr
                 </NavLink>
-                {isLoaded && sessionLinks}
-            </li>
-        </ul>
+            </div>
+            {isLoaded && sessionLinks}
+        </nav>
     );
 }
 

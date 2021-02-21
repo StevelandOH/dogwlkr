@@ -30,18 +30,11 @@ function ProfileButton({ user }) {
 
     return (
         <>
-            <button
-                onMouseEnter={() => setShowMenu(true)}
-                onMouseLeave={() => setShowMenu(false)}
-            >
+            <button onClick={() => setShowMenu(true)}>
                 <i className="fas fa-bone" />
             </button>
             {showMenu && (
-                <ul
-                    className="profile-dropdown"
-                    onMouseEnter={() => setShowMenu(true)}
-                    onMouseLeave={() => setShowMenu(false)}
-                >
+                <ul>
                     <li>{user.username}</li>
                     <li>{user.email}</li>
                     <li>
