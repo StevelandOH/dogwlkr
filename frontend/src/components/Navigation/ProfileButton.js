@@ -29,20 +29,30 @@ function ProfileButton({ user }) {
     };
 
     return (
-        <>
-            <button onClick={() => setShowMenu(true)}>
-                <i className="fas fa-bone" />
-            </button>
-            {showMenu && (
-                <ul>
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    <li>
-                        <button onClick={logout}>Log Out</button>
-                    </li>
-                </ul>
-            )}
-        </>
+        <div>
+            <div className="button-conainter">
+                <button onClick={openMenu}>
+                    <i className="fas fa-bone" />
+                </button>
+            </div>
+            <div>
+                {showMenu && (
+                    <div className="dropdown-container">
+                        <p style={{ color: 'white' }}>{user.username}</p>
+                        <p>{user.email}</p>
+                        <button onClick={logout}>logout</button>
+                    </div>
+
+                    // <ul>
+                    //     <li>{user.username}</li>
+                    //     <li>{user.email}</li>
+                    //     <li>
+                    //         <button onClick={logout}>Log Out</button>
+                    //     </li>
+                    // </ul>
+                )}
+            </div>
+        </div>
     );
 }
 

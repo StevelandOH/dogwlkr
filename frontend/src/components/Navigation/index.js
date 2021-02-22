@@ -13,21 +13,30 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <NavLink to="/login">Log In</NavLink>
-                <NavLink to="/signup">Sign Up</NavLink>
+                <div className="login-signup-container">
+                    <NavLink className="login-signup-link" to="/login">
+                        Log In
+                    </NavLink>
+                </div>
+                <div className="login-signup-container">
+                    <NavLink className="login-signup-link" to="/signup">
+                        Sign Up
+                    </NavLink>
+                </div>
             </>
         );
     }
 
     return (
         <nav className="nav">
-            <img src="/Users/stephen/Desktop/dogwlkr/frontend/src/images/top-screen-logo.png"></img>
-            <div className="home-button">
-                <NavLink className="home-link" exact to="/">
-                    Dogwlkr
-                </NavLink>
+            <div className="nav-left">
+                <div className="home-button">
+                    <NavLink className="home-link" exact to="/">
+                        Dogwlkr
+                    </NavLink>
+                </div>
             </div>
-            {isLoaded && sessionLinks}
+            <div className="nav-right">{isLoaded && sessionLinks}</div>
         </nav>
     );
 }
