@@ -7,6 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define(
         'User',
         {
+            imgUrl: {
+                type: DataTypes.STRING,
+                validate: {
+                    len: [1, 1000],
+                },
+            },
             username: {
                 type: DataTypes.STRING,
                 allowNull: false,
@@ -14,9 +20,7 @@ module.exports = (sequelize, DataTypes) => {
                     len: [4, 30],
                     isNotEmail(value) {
                         if (Validator.isEmail(value)) {
-                            throw new Error(
-                                "Robot Gods say, 'username cannot be an email', we're sorry about that..."
-                            );
+                            throw new Error('Username cannot be email');
                         }
                     },
                 },
@@ -28,9 +32,7 @@ module.exports = (sequelize, DataTypes) => {
                     len: [3, 256],
                     isNotEmail(value) {
                         if (!Validator.isEmail(value)) {
-                            throw new Error(
-                                "They're telling us you made that email up, try again..."
-                            );
+                            throw new Error('Not valid email');
                         }
                     },
                 },
@@ -65,11 +67,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
     User.associate = function (models) {
-        // associations can be defined here
+        User.hasMany(models.Pet, { foreignKey: 'userId' });
     };
     User.prototype.toSafeObject = function () {
-        const { id, username, email } = this;
-        return { id, username, email };
+        const { id, imgUrl, username, email } = this;
+        return { id, imgUrl, username, email };
     };
     User.prototype.validatePassword = function (password) {
         return bcrypt.compareSync(password, this.hashedPassword.toString());
