@@ -34,7 +34,7 @@ function LoginFormPage() {
                             <li key={idx}>{error}</li>
                         ))}
                     </ul>
-                    <div className="username">
+                    <div className="username-container">
                         <label>Username or Email</label>
                         <div className="username-input">
                             <input
@@ -45,7 +45,7 @@ function LoginFormPage() {
                             />
                         </div>
                     </div>
-                    <div className="password">
+                    <div className="password-container">
                         <div className="password-input">
                             <input
                                 type="password"

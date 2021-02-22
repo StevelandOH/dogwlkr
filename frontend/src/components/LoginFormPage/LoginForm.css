@@ -1,7 +1,9 @@
 .login-page {
+    background: url('../../images/background.JPEG') no-repeat center fixed;
+    background-size: cover;
+    background-color: black;
     height: auto;
     width: auto;
-    position: relative;
     text-align: center;
     padding-top: 100px;
 }
@@ -15,6 +17,6 @@
     display: inline-block;
     padding: 200px 50px 0px 50px;
     position: relative;
-    margin: 50px;
+    margin-bottom: 400px;
     border-radius: 1em;
 }

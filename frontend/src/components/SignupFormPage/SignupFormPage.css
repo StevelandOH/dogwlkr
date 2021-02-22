@@ -1,0 +1,22 @@
+.signup-page {
+    background: url('../../images/background.JPEG') no-repeat center fixed;
+    background-size: cover;
+    background-color: black;
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.signup-container {
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 250px;
+    width: 250px;
+    display: inline-block;
+    padding: 200px 50px 0px 50px;
+    position: relative;
+    margin-bottom: 400px;
+    border-radius: 1em;
+}

@@ -1,7 +1,8 @@
 /* TODO Add site wide styles */
 body {
-    background: url('../src/images/background.JPEG') no-repeat center center
-        fixed;
-    background-size: cover;
-    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
 }

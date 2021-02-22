@@ -36,50 +36,62 @@ function SignupFormPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul>
-            <label>
-                Email
-                <input
-                    type="email"
-                    value={email}
-                    onChange={addEmail}
-                    required
-                />
-            </label>
-            <label>
-                Username
-                <input
-                    type="text"
-                    value={username}
-                    onChange={addUsername}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={addPassword}
-                    required
-                />
-            </label>
-            <label>
-                Confirm Password
-                <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={addConfirmPassword}
-                    required
-                />
-            </label>
-            <button type="submit">Sign Up</button>
-        </form>
+        <div className="signup-page">
+            <div className="signup-container">
+                <form onSubmit={handleSubmit}>
+                    <ul>
+                        {errors.map((error, idx) => (
+                            <li key={idx}>{error}</li>
+                        ))}
+                    </ul>
+                    <div className="email-container">
+                        <label>Email</label>
+                        <div className="email-input">
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={addEmail}
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="email-container">
+                        <label>Username</label>
+                        <div className="email-input">
+                            <input
+                                type="text"
+                                value={username}
+                                onChange={addUsername}
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="email-container">
+                        <label>Password</label>
+                        <div className="email-input">
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={addPassword}
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="email-container">
+                        <label>Confirm Password</label>
+                        <div className="email-input">
+                            <input
+                                type="password"
+                                value={confirmPassword}
+                                onChange={addConfirmPassword}
+                                required
+                            />
+                        </div>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
     );
 }
 export default SignupFormPage;
