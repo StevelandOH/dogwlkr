@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import LoginFormPage from './components/FormPageLogin/index';
-import SignupFormPage from './components/FormPageSignup/index';
 import * as sessionActions from './store/session';
 import Navigation from '../src/components/Navigation';
 import LandingPage from '../src/components/LandingPage';
+import ActivitiesDisplayPage from '../src/components/ActivitiesDisplayPage';
+import ProfilePage from '../src/components/ProfilePage';
+import RouteCreatePage from '../src/components/RouteCreatePage';
+import RouteDisplayPage from '../src/components/RouteCreatePage';
+import FormPagePet from '../src/components/LandingPage';
+import FormPageActivity from '../src/components/LandingPage';
+import FormPageLogin from './components/FormPageLogin/index';
+import FormPageSignup from './components/FormPageSignup/index';
 
 function App() {
     const dispatch = useDispatch();
@@ -23,10 +29,10 @@ function App() {
                         <LandingPage />
                     </Route>
                     <Route path="/login">
-                        <LoginFormPage />
+                        <FormPageLogin />
                     </Route>
                     <Route path="/signup">
-                        <SignupFormPage />
+                        <FormPageSignup />
                     </Route>
                 </Switch>
             )}

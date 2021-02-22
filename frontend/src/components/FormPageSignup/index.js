@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import './SignupFormPage.css';
+import './FormPageSignup.css';
 
-function SignupFormPage() {
+function FormPageSignup() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [username, setUsername] = useState('');
@@ -94,4 +94,4 @@ function SignupFormPage() {
         </div>
     );
 }
-export default SignupFormPage;
+export default FormPageSignup;

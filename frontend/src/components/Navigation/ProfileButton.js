@@ -42,14 +42,6 @@ function ProfileButton({ user }) {
                         <p>{user.email}</p>
                         <button onClick={logout}>logout</button>
                     </div>
-
-                    // <ul>
-                    //     <li>{user.username}</li>
-                    //     <li>{user.email}</li>
-                    //     <li>
-                    //         <button onClick={logout}>Log Out</button>
-                    //     </li>
-                    // </ul>
                 )}
             </div>
         </div>
