@@ -18,6 +18,7 @@
     font-size: 20pt;
     font-weight: bold;
     margin-left: 100px;
+    text-decoration: none;
 }
 
 .nav-right {
@@ -33,7 +34,11 @@
 }
 
 .login-signup-link {
-    color: black;
+    color: tomato;
+    font-size: 20pt;
+    font-weight: bold;
+    margin-right: 20px;
+    text-decoration: none;
 }
 
 .button-container {
