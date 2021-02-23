@@ -12,11 +12,61 @@
     color: white;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
-    height: 250px;
-    width: 250px;
+    height: 450px;
+    width: 410px;
     display: inline-block;
-    padding: 200px 50px 0px 50px;
+    margin: 50px 50px 50px 50px;
     position: relative;
     margin-bottom: 400px;
-    border-radius: 1em;
+}
+
+.header-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 400px;
+    border: 5px solid black;
+}
+
+.email-container {
+    margin-top: 80px;
+}
+
+.email-label {
+    padding: 10px;
+    font-size: 18pt;
+}
+
+.password-input {
+    color: lightgrey;
+    background-color: black;
+    border: 1px solid white;
+    margin: 10px;
+    height: 40px;
+    width: 275px;
+    text-align: center;
+    border-radius: 0.25em;
+}
+
+.email-input {
+    margin: 10px;
+    height: 40px;
+    width: 275px;
+    border-radius: 0.25em;
+    background-color: lightgrey;
+}
+
+.button-container {
+    background-color: tomato;
+    border-radius: 0.25em;
+}
+
+button {
+    margin: 10px;
+    height: 40px;
+    width: 275px;
+    background-color: tomato;
+    border: 2px solid tomato;
+    border-radius: 0.25em;
+    color: white;
+    font-size: 18px;
 }

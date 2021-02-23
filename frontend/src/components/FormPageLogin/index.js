@@ -28,16 +28,20 @@ function FormPageLogin() {
     return (
         <div className="login-page">
             <div className="login-container">
+                <div className="header-container">
+                    <h1>Log In</h1>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <ul>
                         {errors.map((error, idx) => (
                             <li key={idx}>{error}</li>
                         ))}
                     </ul>
-                    <div className="username-container">
-                        <label>Username or Email</label>
-                        <div className="username-input">
+                    <div className="email-container">
+                        <label className="email-label">log in with email</label>
+                        <div>
                             <input
+                                className="email-input"
                                 type="text"
                                 value={credential}
                                 onChange={(e) => setCredential(e.target.value)}
@@ -46,8 +50,9 @@ function FormPageLogin() {
                         </div>
                     </div>
                     <div className="password-container">
-                        <div className="password-input">
+                        <div>
                             <input
+                                className="password-input"
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -56,6 +61,7 @@ function FormPageLogin() {
                             />
                         </div>
                     </div>
+
                     <button type="submit">Log In</button>
                 </form>
             </div>

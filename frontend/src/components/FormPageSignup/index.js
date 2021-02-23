@@ -44,9 +44,9 @@ function FormPageSignup() {
                             <li key={idx}>{error}</li>
                         ))}
                     </ul>
-                    <div className="email-container">
+                    <div className="signup-email-container">
                         <label>Email</label>
-                        <div className="email-input">
+                        <div className="signup-email-input">
                             <input
                                 type="email"
                                 value={email}
@@ -55,9 +55,9 @@ function FormPageSignup() {
                             />
                         </div>
                     </div>
-                    <div className="email-container">
+                    <div className="signup-username-container">
                         <label>Username</label>
-                        <div className="email-input">
+                        <div className="signup-username-input">
                             <input
                                 type="text"
                                 value={username}
@@ -66,9 +66,9 @@ function FormPageSignup() {
                             />
                         </div>
                     </div>
-                    <div className="email-container">
+                    <div className="signup-password-container">
                         <label>Password</label>
-                        <div className="email-input">
+                        <div className="signup-password-input">
                             <input
                                 type="password"
                                 value={password}
@@ -77,9 +77,9 @@ function FormPageSignup() {
                             />
                         </div>
                     </div>
-                    <div className="email-container">
+                    <div className="signup-confirm-password-container">
                         <label>Confirm Password</label>
-                        <div className="email-input">
+                        <div className="signup-confirm-password-input">
                             <input
                                 type="password"
                                 value={confirmPassword}

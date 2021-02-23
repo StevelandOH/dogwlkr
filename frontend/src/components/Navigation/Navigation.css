@@ -3,8 +3,8 @@
     justify-content: space-between;
     padding: 5px;
     border-bottom: 2px solid black;
-    background-color: lightgrey;
-    height: 30px;
+    background-color: white;
+    height: 50px;
 }
 
 .nav-left {
@@ -14,7 +14,10 @@
 }
 
 .home-link {
-    color: black;
+    color: tomato;
+    font-size: 20pt;
+    font-weight: bold;
+    margin-left: 100px;
 }
 
 .nav-right {
