@@ -7,13 +7,15 @@ const cookieParser = require('cookie-parser');
 const { environment } = require('./config');
 const routes = require('./routes');
 const { ValidationError } = require('sequelize');
+const bodyParser = require('body-parser');
 
 const isProduction = environment === 'production';
 const app = express();
 
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Security Middleware
 if (!isProduction) {

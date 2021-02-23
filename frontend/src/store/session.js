@@ -16,6 +16,31 @@ const removeUser = () => {
     };
 };
 
+export const createUser = (user) => async (dispatch) => {
+    const { images, image, username, email, password } = user;
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('email', email);
+    formData.append('password', password);
+
+    if (images && images.length !== 0) {
+        for (let i = 0; i < images.length; i++) {
+            formData.append('images', images[i]);
+        }
+    }
+    if (image) formData.append('image', image);
+
+    const res = await csrfFetch(`/api/users/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+        body: formData,
+    });
+    const data = await res.json();
+    dispatch(setUser(data.user));
+};
+
 export const login = (user) => async (dispatch) => {
     const { credential, password } = user;
     const response = await csrfFetch('/api/session', {
@@ -37,20 +62,20 @@ export const restoreUser = () => async (dispatch) => {
     return response;
 };
 
-export const signup = (user) => async (dispatch) => {
-    const { username, email, password } = user;
-    const response = await csrfFetch('/api/users', {
-        method: 'POST',
-        body: JSON.stringify({
-            email,
-            password,
-            username,
-        }),
-    });
-    const data = await response.json();
-    dispatch(setUser(data.user));
-    return response;
-};
+// export const signup = (user) => async (dispatch) => {
+//     const { username, email, password } = user;
+//     const response = await csrfFetch('/api/users', {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             email,
+//             password,
+//             username,
+//         }),
+//     });
+//     const data = await response.json();
+//     dispatch(setUser(data.user));
+//     return response;
+// };
 
 export const logout = () => async (dispatch) => {
     const response = await csrfFetch('/api/session', {
@@ -65,10 +90,12 @@ const initialState = { user: null };
 const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
+        // case SET_USER:
+        //     newState = Object.assign({}, state);
+        //     newState.user = action.payload;
+        //     return newState;
         case SET_USER:
-            newState = Object.assign({}, state);
-            newState.user = action.payload;
-            return newState;
+            return { ...state, user: action.payload };
         case REMOVE_USER:
             newState = Object.assign({}, state);
             newState.user = null;

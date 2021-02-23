@@ -3,15 +3,18 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './FormPageSignup.css';
+import { createUser } from '../../store/session';
 
 function FormPageSignup() {
-    const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [image, setImage] = useState(null);
     const [errors, setErrors] = useState([]);
+
+    const dispatch = useDispatch();
+    const sessionUser = useSelector((state) => state.session.user);
 
     const addUsername = (e) => setUsername(e.target.value);
     const addEmail = (e) => setEmail(e.target.value);
@@ -22,17 +25,38 @@ function FormPageSignup() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password === confirmPassword) {
-            return dispatch(
-                sessionActions.signup({ username, password, email })
-            ).catch(async (res) => {
+        let newErrors = [];
+        dispatch(createUser({ username, email, password, image }))
+            .then(() => {
+                setUsername('');
+                setEmail('');
+                setPassword('');
+                setImage(null);
+            })
+            .catch(async (res) => {
                 const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
+                if (data && data.errors) {
+                    newErrors = data.errors;
+                    setErrors(newErrors);
+                }
             });
-        }
-        return setErrors([
-            "It's just a password confirmation, not a second password.  Let's try and make sure they match this time.",
-        ]);
+
+        // if (password === confirmPassword) {
+        //     return dispatch(
+        //         sessionActions.signup({ username, password, email })
+        //     ).catch(async (res) => {
+        //         const data = await res.json();
+        //         if (data && data.errors) setErrors(data.errors);
+        //     });
+        // }
+        // return setErrors([
+        //     "It's just a password confirmation, not a second password.  Let's try and make sure they match this time.",
+        // ]);
+    };
+
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setImage(file);
     };
 
     return (
@@ -86,6 +110,12 @@ function FormPageSignup() {
                                 onChange={addConfirmPassword}
                                 required
                             />
+                        </div>
+                    </div>
+                    <div className="signup-add-image-container">
+                        <label>Add an image</label>
+                        <div className="signup-add-image-input">
+                            <input type="file" onChange={updateFile} />
                         </div>
                     </div>
                     <button type="submit">Sign Up</button>
