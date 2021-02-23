@@ -46,7 +46,7 @@ function App() {
                     <Route path="/activities/create">
                         <FormPageActivity />
                     </Route>
-                    <Route exact path="/routes/:id">
+                    <Route exact path="/routes/id">
                         <RouteDisplayPage />
                     </Route>
                     <Route exact path="/routes/create">
