@@ -2,31 +2,41 @@ import './RouteCreatePage.css';
 import MapSection from '../../utils/Map.jsx';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as sessionActions from '../../store/routes';
+import { useHistory } from 'react-router-dom';
+import { createRoute } from '../../store/routes';
 
 function RouteCreatePage() {
+    const history = useHistory();
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
 
+    const sessionUser = useSelector((state) => state.session.user);
+    const userId = sessionUser.id;
+
+    const addTitle = (e) => setTitle(e.target.value);
+    const addDescription = (e) => setDescription(e.target.value);
+
     const location = {
         lat: 41.4993,
         lng: -81.6944,
     };
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        let newErrors = [];
-        dispatch(sessionActions.createRoute({ title, description })).catch(
-            async (res) => {
-                const data = await res.json();
-                if (data && data.errors) {
-                    newErrors = data.errors;
-                    setErrors(newErrors);
-                }
-            }
-        );
+        const payload = {
+            title,
+            description,
+            userId,
+        };
+        const createdRoute = await dispatch(createRoute(payload));
+        if (createdRoute) {
+            console.log('route created!!!');
+            history.push('/');
+        }
     };
+
     return (
         <div>
             <div className="new-route-container">
@@ -46,7 +56,7 @@ function RouteCreatePage() {
                                 className="title-input"
                                 type="text"
                                 value={title}
-                                onChange={(e) => setTitle(e.target.value)}
+                                onChange={addTitle}
                                 required
                             />
                         </div>
@@ -58,10 +68,11 @@ function RouteCreatePage() {
                                 className="description-input"
                                 type="text"
                                 value={description}
-                                onChange={(e) => setDescription(e.target.value)}
+                                onChange={addDescription}
                                 required
                             />
                         </div>
+                        <button type="submit">Create Route</button>
                     </form>
                     <div>distance:</div>
                     <div>elevation:</div>

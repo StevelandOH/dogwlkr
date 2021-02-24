@@ -1,3 +1,6 @@
+import sessionReducer from './session';
+import { csrfFetch } from './csrf';
+
 const SET_ROUTE = 'routes/setRoute';
 
 const setRoute = (route) => {
@@ -8,18 +11,18 @@ const setRoute = (route) => {
 };
 
 export const createRoute = (route) => async (dispatch) => {
-    const { title, description } = route;
-    const response = await ('/api/routes',
-    {
+    const res = await csrfFetch('/api/routes', {
         method: 'POST',
-        body: JSON.stringify({
-            title,
-            description,
-        }),
+        body: JSON.stringify(route),
+        headers: {
+            'Content-Type': 'application/json',
+        },
     });
-    const data = await response.json();
-    dispatch(setRoute(data.route));
-    return response;
+    if (res.ok) {
+        const route = await res.json();
+        dispatch(setRoute(route));
+        return route;
+    }
 };
 
 const initialState = { route: null };
