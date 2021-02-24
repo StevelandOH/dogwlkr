@@ -15,7 +15,7 @@ return(
            
             <GoogleMapReact bootstrapURLKeys={{key: 'AIzaSyAPg1BvA6UXhRQsmuS9m0e3d5tTQAUlqQI'}}
             defaultCenter={location} defaultZoom={zoomLevel} onGoogleApiLoaded={({map, maps}) => handleAPILoaded(map, maps)}>
-                <div className='floating-div'><p>FORM for 'title' and 'description'</p><p>...will also display distance and elevation live</p></div>
+
             </GoogleMapReact>
         </div>
     </div>
