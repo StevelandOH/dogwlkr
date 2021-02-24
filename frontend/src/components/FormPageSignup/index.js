@@ -70,53 +70,56 @@ function FormPageSignup() {
                     </ul>
                     <div className="signup-email-container">
                         <label>Email</label>
-                        <div className="signup-email-input">
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={addEmail}
-                                required
-                            />
-                        </div>
+
+                        <input
+                            className="signup-email-input"
+                            type="email"
+                            value={email}
+                            onChange={addEmail}
+                            required
+                        />
                     </div>
                     <div className="signup-username-container">
                         <label>Username</label>
-                        <div className="signup-username-input">
-                            <input
-                                type="text"
-                                value={username}
-                                onChange={addUsername}
-                                required
-                            />
-                        </div>
+
+                        <input
+                            className="signup-username-input"
+                            type="text"
+                            value={username}
+                            onChange={addUsername}
+                            required
+                        />
                     </div>
                     <div className="signup-password-container">
                         <label>Password</label>
-                        <div className="signup-password-input">
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={addPassword}
-                                required
-                            />
-                        </div>
+
+                        <input
+                            className="signup-password-input"
+                            type="password"
+                            value={password}
+                            onChange={addPassword}
+                            required
+                        />
                     </div>
                     <div className="signup-confirm-password-container">
                         <label>Confirm Password</label>
-                        <div className="signup-confirm-password-input">
-                            <input
-                                type="password"
-                                value={confirmPassword}
-                                onChange={addConfirmPassword}
-                                required
-                            />
-                        </div>
+
+                        <input
+                            className="signup-confirm-password-input"
+                            type="password"
+                            value={confirmPassword}
+                            onChange={addConfirmPassword}
+                            required
+                        />
                     </div>
                     <div className="signup-add-image-container">
                         <label>Add an image</label>
-                        <div className="signup-add-image-input">
-                            <input type="file" onChange={updateFile} />
-                        </div>
+
+                        <input
+                            className="signup-add-image-input"
+                            type="file"
+                            onChange={updateFile}
+                        />
                     </div>
                     <button type="submit">Sign Up</button>
                 </form>

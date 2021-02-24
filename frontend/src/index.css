@@ -1,4 +1,10 @@
 /* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'RocknRoll One', sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;

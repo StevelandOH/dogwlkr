@@ -51,7 +51,7 @@ function RouteCreatePage() {
                             />
                         </div>
                         <div className="description-container">
-                            <textArea
+                            <textarea
                                 placeholder="description"
                                 cols="10"
                                 rows="5"

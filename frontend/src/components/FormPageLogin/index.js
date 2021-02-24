@@ -39,30 +39,29 @@ function FormPageLogin() {
                     </ul>
                     <div className="email-container">
                         <label className="email-label">log in with email</label>
-                        <div>
-                            <input
-                                className="email-input"
-                                type="text"
-                                value={credential}
-                                onChange={(e) => setCredential(e.target.value)}
-                                required
-                            />
-                        </div>
+                        <input
+                            placeholder="Your Email"
+                            className="email-input"
+                            type="text"
+                            value={credential}
+                            onChange={(e) => setCredential(e.target.value)}
+                            required
+                        />
                     </div>
                     <div className="password-container">
-                        <div>
-                            <input
-                                className="password-input"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="password"
-                                required
-                            />
-                        </div>
+                        <input
+                            className="password-input"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                            required
+                        />
                     </div>
 
-                    <button type="submit">Log In</button>
+                    <button className="login-button" type="submit">
+                        Log In
+                    </button>
                 </form>
             </div>
         </div>

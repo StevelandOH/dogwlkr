@@ -1,11 +1,17 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
+import GoogleMapMarker from 'google-map-react'
+import LatLng from 'google-map-react'
 import './map.css'
 
 function Map ({ location, zoomLevel }) {
 
+    const createControlledPromise = []
+
     const handleAPILoaded = (map, maps) => {
         // console.log(map, '---------map')
+
+        console.log( LatLng )
         console.log(maps, '---------maps')
     }
 return(
@@ -13,7 +19,8 @@ return(
     <div className='map'>
         <div className='google-map'>
            
-            <GoogleMapReact bootstrapURLKeys={{key: 'AIzaSyAPg1BvA6UXhRQsmuS9m0e3d5tTQAUlqQI'}}
+            <GoogleMapReact 
+            bootstrapURLKeys={{key: 'AIzaSyAPg1BvA6UXhRQsmuS9m0e3d5tTQAUlqQI'}}
             defaultCenter={location} defaultZoom={zoomLevel} onGoogleApiLoaded={({map, maps}) => handleAPILoaded(map, maps)}>
 
             </GoogleMapReact>

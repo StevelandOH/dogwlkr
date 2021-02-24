@@ -31,11 +31,9 @@ function Navigation({ isLoaded }) {
     return (
         <nav className="nav">
             <div className="nav-left">
-                <div className="home-button">
-                    <NavLink className="home-link" exact to="/">
-                        Dogwlkr
-                    </NavLink>
-                </div>
+                <NavLink className="home-link" exact to="/">
+                    Dogwlkr
+                </NavLink>
             </div>
             <div className="nav-right">{isLoaded && sessionLinks}</div>
         </nav>
