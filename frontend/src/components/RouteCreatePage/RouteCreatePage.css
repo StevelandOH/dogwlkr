@@ -6,7 +6,18 @@
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     height: 250px;
-    width: 250px;
+    width: 150px;
     margin-left: 200px;
     margin-bottom: 100px;
+    align-items: center;
+}
+
+.title-container,
+.description-container,
+.route-header {
+    text-align: center;
+}
+
+.title-input {
+    width: 100px;
 }
