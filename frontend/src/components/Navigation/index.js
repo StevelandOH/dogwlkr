@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 
 import './Navigation.css';
@@ -10,34 +10,50 @@ function Navigation({ isLoaded }) {
 
     let sessionLinks;
     if (sessionUser) {
-        sessionLinks = <ProfileButton user={sessionUser} />;
-    } else {
-        sessionLinks = (
-            <>
-                <div className="login-signup-container">
-                    <NavLink className="login-signup-link" to="/login">
-                        Log In
+        return (
+            <nav className="nav-logged-in">
+                <div className="home-link-container">
+                    <NavLink className="home-link" exact to="/">
+                        DOGWLKR
                     </NavLink>
                 </div>
-                <div className="login-signup-container">
-                    <NavLink className="login-signup-link" to="/signup">
+                <div className="dashboard-nav-link-container">
+                    <NavLink className="dashboard-link" to="/profile">
+                        Dashboard
+                    </NavLink>
+                </div>
+                <div className="activities-nav-link-container">
+                    <NavLink className="activities-link" to="/activities">
+                        Activities
+                    </NavLink>
+                </div>
+                <div className="routes-nav-link-container">
+                    <NavLink className="routes-link" to="/routes/create">
+                        Map
+                    </NavLink>
+                </div>
+                <div className="profile-button-container">
+                    <ProfileButton user={sessionUser} />
+                </div>
+            </nav>
+        );
+    } else {
+        return (
+            <nav className="nav-logged-out">
+                <div className="home-link-container">
+                    <NavLink className="home-link" exact to="/">
+                        Dogwlkr
+                    </NavLink>
+                </div>
+
+                <div className="nav-signup-container">
+                    <NavLink className="nav-signup-link" to="/signup">
                         Sign Up
                     </NavLink>
                 </div>
-            </>
+            </nav>
         );
     }
-
-    return (
-        <nav className="nav">
-            <div className="nav-left">
-                <NavLink className="home-link" exact to="/">
-                    Dogwlkr
-                </NavLink>
-            </div>
-            <div className="nav-right">{isLoaded && sessionLinks}</div>
-        </nav>
-    );
 }
 
 export default Navigation;

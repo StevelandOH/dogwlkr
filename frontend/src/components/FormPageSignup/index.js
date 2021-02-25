@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import './FormPageSignup.css';
 import { createUser } from '../../store/session';
 
@@ -40,18 +40,6 @@ function FormPageSignup() {
                     setErrors(newErrors);
                 }
             });
-
-        // if (password === confirmPassword) {
-        //     return dispatch(
-        //         sessionActions.signup({ username, password, email })
-        //     ).catch(async (res) => {
-        //         const data = await res.json();
-        //         if (data && data.errors) setErrors(data.errors);
-        //     });
-        // }
-        // return setErrors([
-        //     "It's just a password confirmation, not a second password.  Let's try and make sure they match this time.",
-        // ]);
     };
 
     const updateFile = (e) => {
@@ -62,6 +50,9 @@ function FormPageSignup() {
     return (
         <div className="signup-page">
             <div className="signup-container">
+                <div className="signup-header-container">
+                    <h1>Join Dogwlkr today, it's Free.</h1>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <ul>
                         {errors.map((error, idx) => (
@@ -69,60 +60,56 @@ function FormPageSignup() {
                         ))}
                     </ul>
                     <div className="signup-email-container">
-                        <label>Email</label>
-
                         <input
                             className="signup-email-input"
                             type="email"
                             value={email}
                             onChange={addEmail}
+                            placeholder="Email"
                             required
                         />
                     </div>
                     <div className="signup-username-container">
-                        <label>Username</label>
-
                         <input
                             className="signup-username-input"
                             type="text"
                             value={username}
                             onChange={addUsername}
+                            placeholder="Username"
                             required
                         />
                     </div>
                     <div className="signup-password-container">
-                        <label>Password</label>
-
                         <input
                             className="signup-password-input"
                             type="password"
                             value={password}
                             onChange={addPassword}
+                            placeholder="Password"
                             required
                         />
                     </div>
                     <div className="signup-confirm-password-container">
-                        <label>Confirm Password</label>
-
                         <input
                             className="signup-confirm-password-input"
                             type="password"
                             value={confirmPassword}
                             onChange={addConfirmPassword}
+                            placeholder="Password"
                             required
                         />
                     </div>
-                    <div className="signup-add-image-container">
-                        <label>Add an image</label>
 
-                        <input
-                            className="signup-add-image-input"
-                            type="file"
-                            onChange={updateFile}
-                        />
-                    </div>
-                    <button type="submit">Sign Up</button>
+                    <button className="submit-signup-button" type="submit">
+                        Sign Up
+                    </button>
                 </form>
+                <div className="already-memeber-div">
+                    {'Already a Member?  '}
+                    <NavLink className="login-navlink" to="/login">
+                        Log In
+                    </NavLink>
+                </div>
             </div>
         </div>
     );

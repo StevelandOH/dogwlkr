@@ -1,9 +1,8 @@
-import sessionReducer from './session';
 import { csrfFetch } from './csrf';
 
 const SET_ROUTE = 'routes/setRoute';
 
-const setRoute = (route) => {
+const setRoute = ({ route }) => {
     return {
         type: SET_ROUTE,
         payload: route,
@@ -25,14 +24,15 @@ export const createRoute = (route) => async (dispatch) => {
     }
 };
 
-const initialState = { route: null };
+const initialState = {};
 
 const routeReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_ROUTE:
-            newState = Object.assign({}, state);
-            newState.route = action.payload;
+            newState = Object.assign({}, state, {
+                [action.payload.id]: action.payload,
+            });
             return newState;
         default:
             return state;
