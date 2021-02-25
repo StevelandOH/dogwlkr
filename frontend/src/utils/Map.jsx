@@ -20,7 +20,7 @@ return(
         <div className='google-map'>
            
             <GoogleMapReact 
-            bootstrapURLKeys={{key: 'AIzaSyAPg1BvA6UXhRQsmuS9m0e3d5tTQAUlqQI'}}
+            bootstrapURLKeys={{key: 'API KEY'}}
             defaultCenter={location} defaultZoom={zoomLevel} onGoogleApiLoaded={({map, maps}) => handleAPILoaded(map, maps)}>
 
             </GoogleMapReact>
