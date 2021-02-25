@@ -5,8 +5,14 @@ import ProfileButton from './ProfileButton';
 
 import './Navigation.css';
 
-function Navigation({ isLoaded }) {
+function Navigation({ currPath, isLoaded }) {
+    // const [path, setPath] = window.location.pathname;
+    console.log(currPath, 'this is my curr path');
     const sessionUser = useSelector((state) => state.session.user);
+
+    // useEffect(() => {
+    //     setPath(window.location.pathname);
+    // }, [path]);
 
     let sessionLinks;
     if (sessionUser) {
@@ -43,12 +49,6 @@ function Navigation({ isLoaded }) {
                 <div className="home-link-container">
                     <NavLink className="home-link" exact to="/">
                         Dogwlkr
-                    </NavLink>
-                </div>
-
-                <div className="nav-signup-container">
-                    <NavLink className="nav-signup-link" to="/signup">
-                        Sign Up
                     </NavLink>
                 </div>
             </nav>

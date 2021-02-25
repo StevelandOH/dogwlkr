@@ -21,12 +21,6 @@ function App() {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     }, [dispatch]);
 
-    const places = [
-        { latitude: 25.8103146, longitude: -80.1751609 },
-        { latitude: 27.9947147, longitude: -82.5943645 },
-        { latitude: 28.4813018, longitude: -81.4387899 },
-    ];
-
     return (
         <>
             <Navigation isLoaded={isLoaded} />
@@ -57,7 +51,7 @@ function App() {
                         <RouteDisplayPage />
                     </Route>
                     <Route exact path="/routes/create">
-                        <RouteCreatePage places={places} />
+                        <RouteCreatePage />
                     </Route>
                     <Route>Page Not Found</Route>
                 </Switch>

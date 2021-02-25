@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import './FormPageLogin.css';
 import background from '../../images/background.JPEG';
 
-function FormPageLogin() {
+function FormPageLogin({}) {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [credential, setCredential] = useState('');
@@ -38,7 +38,9 @@ function FormPageLogin() {
                         ))}
                     </ul>
                     <div className="email-container">
-                        <label className="email-label">log in with email</label>
+                        <label className="email-label">
+                            ... or log in with username
+                        </label>
                         <input
                             placeholder="Your Email"
                             className="email-input"
@@ -63,6 +65,12 @@ function FormPageLogin() {
                         Log In
                     </button>
                 </form>
+                <div className="not-a-memeber-div">
+                    {'Not a Member?  '}
+                    <NavLink className="login-navlink" to="/signup">
+                        Sign Up
+                    </NavLink>
+                </div>
             </div>
         </div>
     );

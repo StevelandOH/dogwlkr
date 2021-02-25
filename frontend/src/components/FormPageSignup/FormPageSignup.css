@@ -12,7 +12,7 @@
     color: white;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
-    height: 480px;
+    height: 500px;
     width: 375px;
     display: inline-block;
     margin: 50px 50px 50px 50px;
@@ -56,7 +56,6 @@
 }
 
 .already-memeber-div {
-    margin-top: 50px;
 }
 
 .login-navlink {

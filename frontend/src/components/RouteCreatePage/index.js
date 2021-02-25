@@ -1,5 +1,5 @@
 import './RouteCreatePage.css';
-import MapSection from '../../utils/Map.jsx';
+import MapContainer from '../Map';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -10,6 +10,7 @@ function RouteCreatePage() {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+
     const [errors, setErrors] = useState([]);
 
     const sessionUser = useSelector((state) => state.session.user);
@@ -78,7 +79,7 @@ function RouteCreatePage() {
                     <div>elevation:</div>
                 </div>
             </div>
-            <MapSection location={location} zoomLevel={17} />;
+            <MapContainer />;
         </div>
     );
 }
