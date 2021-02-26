@@ -12,13 +12,6 @@ function Navigation() {
     const sessionUser = useSelector((state) => state.session.user);
 
     const [showMenu, setShowMenu] = useState(false);
-    const openMenu = () => {
-        setShowMenu(true);
-    };
-
-    const closeMenu = () => {
-        setShowMenu(false);
-    };
 
     if (sessionUser) {
         return (

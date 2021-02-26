@@ -4,21 +4,17 @@ import { NavLink } from 'react-router-dom';
 function MapDropdown() {
     const [showMenu, setShowMenu] = useState(false);
 
-    const openMenu = () => {
-        setShowMenu(true);
-    };
-
-    const closeMenu = () => {
-        setShowMenu(false);
+    const toggleMenu = () => {
+        showMenu ? setShowMenu(false) : setShowMenu(true);
     };
 
     return (
         <div>
-            <div className="map-title-container" onMouseEnter={openMenu}>
+            <div className="map-title-container" onClick={toggleMenu}>
                 Maps🔻
             </div>
 
-            <div onMouseLeave={closeMenu}>
+            <div onMouseLeave={toggleMenu} onClick={toggleMenu}>
                 {showMenu && (
                     <div className="map-dropdown-container">
                         <NavLink className="create-route-link" to="/new/route">

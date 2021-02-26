@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink } from 'react-router-dom';
 import './LoginForm.css';
 
 function FormPageLogin({}) {
+    const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [credential, setCredential] = useState('');
@@ -20,6 +22,7 @@ function FormPageLogin({}) {
             async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
+                history.push('/profile');
             }
         );
     };

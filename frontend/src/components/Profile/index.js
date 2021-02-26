@@ -2,8 +2,13 @@ import './Profile.css';
 import PetContainer from '../PetContainer';
 import UserContainer from '../UserContainer';
 import RouteContainer from '../RouteContainer';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 function ProfilePage() {
+    const sessionUser = useSelector((state) => state.session.user);
+    if (!sessionUser) return <Redirect to="/" />;
+
     return (
         <div>
             <div className="pet-card-container">

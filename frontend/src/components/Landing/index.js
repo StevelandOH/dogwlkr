@@ -1,9 +1,12 @@
 import './Landing.css';
-import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function LandingPage() {
     const history = useHistory();
+    const sessionUser = useSelector((state) => state.session.user);
+
+    if (sessionUser) return <Redirect to="/profile" />;
 
     return (
         <div className="landing-page">

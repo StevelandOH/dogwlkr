@@ -4,21 +4,17 @@ import { NavLink } from 'react-router-dom';
 function ActivityDropdown() {
     const [showMenu, setShowMenu] = useState(false);
 
-    const openMenu = () => {
-        setShowMenu(true);
-    };
-
-    const closeMenu = () => {
-        setShowMenu(false);
+    const toggleMenu = () => {
+        showMenu ? setShowMenu(false) : setShowMenu(true);
     };
 
     return (
         <div>
-            <div className="activity-title-container" onMouseEnter={openMenu}>
+            <div className="activity-title-container" onClick={toggleMenu}>
                 Activities🔻
             </div>
 
-            <div onMouseLeave={closeMenu}>
+            <div onMouseLeave={toggleMenu} onClick={toggleMenu}>
                 {showMenu && (
                     <div className="activity-dropdown-container">
                         <p>

@@ -4,21 +4,17 @@ import { NavLink } from 'react-router-dom';
 function DashboardDropdown() {
     const [showMenu, setShowMenu] = useState(false);
 
-    const openMenu = () => {
-        setShowMenu(true);
-    };
-
-    const closeMenu = () => {
-        setShowMenu(false);
+    const toggleMenu = () => {
+        showMenu ? setShowMenu(false) : setShowMenu(true);
     };
 
     return (
         <div>
-            <div className="dashboard-title-container" onMouseEnter={openMenu}>
+            <div className="dashboard-title-container" onClick={toggleMenu}>
                 Dashboard🔻
             </div>
 
-            <div onMouseLeave={closeMenu}>
+            <div onMouseLeave={toggleMenu} onClick={toggleMenu}>
                 {showMenu && (
                     <div className="dashboard-dropdown-container">
                         <NavLink className="dashboard-link" to="/profile">

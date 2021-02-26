@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import Dog from '../../images/Untitled.jpg';
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [showMenu, setShowMenu] = useState(false);
 
-    const openMenu = () => {
-        setShowMenu(true);
-    };
-
-    const closeMenu = () => {
-        setShowMenu(false);
+    const toggleMenu = () => {
+        showMenu ? setShowMenu(false) : setShowMenu(true);
     };
 
     const logout = (e) => {
         e.preventDefault();
+        history.push('/login');
         dispatch(sessionActions.logout());
     };
 
@@ -26,11 +25,11 @@ function ProfileButton({ user }) {
                 <img
                     src={Dog}
                     className="logout-picture"
-                    onMouseEnter={openMenu}
+                    onClick={toggleMenu}
                 ></img>
             </div>
 
-            <div onMouseLeave={closeMenu}>
+            <div onMouseLeave={toggleMenu} onClick={toggleMenu}>
                 {showMenu && (
                     <div className="dropdown-container">
                         <p style={{ color: 'white' }}>{user.username}</p>
