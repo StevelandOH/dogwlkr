@@ -1,4 +1,4 @@
-import './ProfileUserCard.css';
+import './UserContainer.css';
 
 function ProfileUserCard() {
     return <h1 className="landing">ProfileUserCard</h1>;

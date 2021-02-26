@@ -1,4 +1,4 @@
-import './ActivitiesDisplayPage.css';
+import './Activities.css';
 
 function ActivitiesDisplayPage() {
     return <h1 className="landing">ActivitiesDisplayPage</h1>;

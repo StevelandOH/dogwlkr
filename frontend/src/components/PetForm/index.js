@@ -1,4 +1,4 @@
-import './FormPagePet.css';
+import './PetForm.css';
 
 function FormPagePet() {
     return <h1 className="landing">FormPagePet</h1>;

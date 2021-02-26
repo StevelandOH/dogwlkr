@@ -1,4 +1,4 @@
-import './FormPageActivity.css';
+import './ActivityForm.css';
 
 function FormPageActivity() {
     return <h1 className="landing">FormPageActivity</h1>;

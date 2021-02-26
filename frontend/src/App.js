@@ -3,15 +3,15 @@ import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import * as sessionActions from './store/session';
 import Navigation from '../src/components/Navigation';
-import LandingPage from '../src/components/LandingPage';
-import ActivitiesDisplayPage from '../src/components/ActivitiesDisplayPage';
-import ProfilePage from '../src/components/ProfilePage';
-import RouteCreatePage from '../src/components/RouteCreatePage';
-import RouteDisplayPage from '../src/components/RouteDisplayPage';
-import FormPagePet from '../src/components/FormPagePet';
-import FormPageActivity from '../src/components/FormPageActivity';
-import FormPageLogin from './components/FormPageLogin/index';
-import FormPageSignup from './components/FormPageSignup/index';
+import Landing from '../src/components/Landing';
+import Activities from '../src/components/Activities';
+import Profile from '../src/components/Profile';
+import CreateRoute from '../src/components/CreateRoute';
+import RoutePage from './components/RoutePage';
+import PetForm from '../src/components/PetForm';
+import ActivityForm from '../src/components/ActivityForm';
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
 
 function App() {
     const dispatch = useDispatch();
@@ -27,31 +27,31 @@ function App() {
             {isLoaded && (
                 <Switch>
                     <Route exact path="/">
-                        <LandingPage />
+                        <Landing />
                     </Route>
                     <Route path="/login">
-                        <FormPageLogin />
+                        <LoginForm />
                     </Route>
                     <Route path="/signup">
-                        <FormPageSignup />
+                        <SignupForm />
                     </Route>
                     <Route path="/profile">
-                        <ProfilePage />
+                        <Profile />
                     </Route>
                     <Route path="/pets/create">
-                        <FormPagePet />
+                        <PetForm />
                     </Route>
                     <Route exact path="/activities">
-                        <ActivitiesDisplayPage />
+                        <Activities />
                     </Route>
                     <Route path="/activities/create">
-                        <FormPageActivity />
+                        <ActivityForm />
                     </Route>
                     <Route exact path="/routes/id">
-                        <RouteDisplayPage />
+                        <RoutePage />
                     </Route>
                     <Route exact path="/routes/create">
-                        <RouteCreatePage />
+                        <CreateRoute />
                     </Route>
                     <Route>Page Not Found</Route>
                 </Switch>

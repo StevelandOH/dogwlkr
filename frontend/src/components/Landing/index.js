@@ -1,4 +1,4 @@
-import './LandingPage.css';
+import './Landing.css';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 

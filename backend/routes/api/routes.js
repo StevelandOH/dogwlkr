@@ -8,11 +8,12 @@ router.post(
     '/',
     asyncHandler(async (req, res) => {
         console.log(req);
-        const { title, description, userId } = req.body;
+        const { title, description, userId, distance } = req.body;
         const route = await Route.create({
             title: title,
             description: description,
             userId: userId,
+            distance: distance,
         });
         return res.json({ route });
     })
