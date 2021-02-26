@@ -19,4 +19,14 @@ router.post(
     })
 );
 
+router.get(
+    '/:id',
+    asyncHandler(async (req, res) => {
+        const id = parseInt(req.params.id, 10);
+        console.log('this is the id ', id);
+        const routes = await Route.findAll({ where: { userId: id } });
+        return res.json(routes);
+    })
+);
+
 module.exports = router;

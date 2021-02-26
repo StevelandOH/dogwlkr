@@ -1,6 +1,6 @@
 import { csrfFetch } from './csrf';
 
-const SET_PET = 'pets/setPet';
+const SET_PET = 'pets/SET_PET';
 
 const setPet = ({ pet }) => {
     return {

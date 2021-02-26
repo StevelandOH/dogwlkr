@@ -13,10 +13,11 @@ function ProfileButton({ user }) {
         showMenu ? setShowMenu(false) : setShowMenu(true);
     };
 
-    const logout = (e) => {
+    const logout = async (e) => {
         e.preventDefault();
+
+        await dispatch(sessionActions.logout());
         history.push('/login');
-        dispatch(sessionActions.logout());
     };
 
     return (

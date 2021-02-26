@@ -2,12 +2,23 @@ import './Profile.css';
 import PetContainer from '../PetContainer';
 import UserContainer from '../UserContainer';
 import RouteContainer from '../RouteContainer';
-import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { setAllRoutes } from '../../store/routes';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { login } from '../../store/session';
 
 function ProfilePage() {
+    const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    if (!sessionUser) return <Redirect to="/" />;
+
+    useEffect(() => {
+        if (sessionUser) {
+            dispatch(setAllRoutes(sessionUser.id));
+        }
+    }, [dispatch, sessionUser?.id]);
+
+    if (!sessionUser) return null;
 
     return (
         <div>

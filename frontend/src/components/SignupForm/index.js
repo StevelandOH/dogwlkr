@@ -18,6 +18,7 @@ function FormPageSignup() {
 
     const addUsername = (e) => setUsername(e.target.value);
     const addEmail = (e) => setEmail(e.target.value);
+    const addImage = (e) => setImage(e.target.value);
     const addPassword = (e) => setPassword(e.target.value);
     const addConfirmPassword = (e) => setConfirmPassword(e.target.value);
 
@@ -93,6 +94,14 @@ function FormPageSignup() {
                             placeholder="Password"
                             required
                         />
+                        <div className="add-file-on-signup">
+                            <input
+                                className="add-file-input-signup"
+                                type="file"
+                                value={image}
+                                onChange={addImage}
+                            />
+                        </div>
                     </div>
 
                     <button className="submit-signup-button" type="submit">

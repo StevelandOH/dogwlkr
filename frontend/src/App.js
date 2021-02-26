@@ -47,10 +47,10 @@ function App() {
                     <Route path="/new/activity">
                         <ActivityForm />
                     </Route>
-                    <Route exact path="/route/id">
+                    <Route path="/route/:routeId">
                         <RoutePage />
                     </Route>
-                    <Route exact path="/new/route">
+                    <Route path="/new/route">
                         <CreateRoute />
                     </Route>
                     <Route>Page Not Found</Route>

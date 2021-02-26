@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import routeReducer from './routes';
 import activityReducer from './activities';
+import petReducer from './pets';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     routes: routeReducer,
     activity: activityReducer,
+    pets: petReducer,
 });
 
 let enhancer;

@@ -1,7 +1,10 @@
 import { csrfFetch } from './csrf';
+import * as activityAction from './activities';
+import * as routeAction from './routes';
+import * as petAction from './pets';
 
-const SET_USER = 'session/setUser';
-const REMOVE_USER = 'session/removeUser';
+const SET_USER = 'session/SET_USER';
+const REMOVE_USER = 'session/REMOVE_USER';
 
 const setUser = (user) => {
     return {
@@ -34,6 +37,7 @@ export const createUser = (user) => async (dispatch) => {
     });
     const data = await res.json();
     dispatch(setUser(data.user));
+    // dispatch(petAction.createPet());
 };
 
 export const login = (user) => async (dispatch) => {
@@ -57,26 +61,12 @@ export const restoreUser = () => async (dispatch) => {
     return response;
 };
 
-// export const signup = (user) => async (dispatch) => {
-//     const { username, email, password } = user;
-//     const response = await csrfFetch('/api/users', {
-//         method: 'POST',
-//         body: JSON.stringify({
-//             email,
-//             password,
-//             username,
-//         }),
-//     });
-//     const data = await response.json();
-//     dispatch(setUser(data.user));
-//     return response;
-// };
-
 export const logout = () => async (dispatch) => {
     const response = await csrfFetch('/api/session', {
         method: 'DELETE',
     });
-    dispatch(removeUser());
+    if (response.ok) dispatch(removeUser());
+
     return response;
 };
 
