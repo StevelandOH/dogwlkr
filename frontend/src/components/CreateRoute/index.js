@@ -1,6 +1,5 @@
 import './CreateRoute.css';
-
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createRoute } from '../../store/routes';
@@ -9,8 +8,6 @@ import {
     GoogleMap,
     LoadScript,
     Marker,
-    DirectionsService,
-    DirectionsRenderer,
 } from '@react-google-maps/api';
 
 const DistanceCalcContainer = ({ coords, setDist }) => {

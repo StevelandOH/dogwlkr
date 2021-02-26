@@ -42,11 +42,6 @@ function FormPageSignup() {
             });
     };
 
-    const updateFile = (e) => {
-        const file = e.target.files[0];
-        if (file) setImage(file);
-    };
-
     return (
         <div className="signup-page">
             <div className="signup-container">

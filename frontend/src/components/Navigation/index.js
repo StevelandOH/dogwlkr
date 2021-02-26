@@ -5,21 +5,14 @@ import ProfileButton from './ProfileButton';
 
 import './Navigation.css';
 
-function Navigation({ currPath, isLoaded }) {
-    // const [path, setPath] = window.location.pathname;
-    console.log(currPath, 'this is my curr path');
+function Navigation() {
     const sessionUser = useSelector((state) => state.session.user);
 
-    // useEffect(() => {
-    //     setPath(window.location.pathname);
-    // }, [path]);
-
-    let sessionLinks;
     if (sessionUser) {
         return (
             <nav className="nav-logged-in">
                 <div className="home-link-container">
-                    <NavLink className="home-link" exact to="/">
+                    <NavLink className="home-link" exact to="/profile">
                         DOGWLKR
                     </NavLink>
                 </div>

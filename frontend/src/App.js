@@ -41,10 +41,10 @@ function App() {
                     <Route path="/pets/create">
                         <PetForm />
                     </Route>
-                    <Route exact path="/activities">
+                    <Route exact path="/activities/create">
                         <Activities />
                     </Route>
-                    <Route path="/activities/create">
+                    <Route path="/activities">
                         <ActivityForm />
                     </Route>
                     <Route exact path="/routes/id">
