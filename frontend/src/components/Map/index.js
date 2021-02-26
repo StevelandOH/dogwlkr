@@ -11,7 +11,6 @@ import {
 
 const DistanceCalcContainer = ({ coords, setDistance }) => {
     const distCallback = useCallback((response) => {
-        console.log(response);
         setDistance(
             (prevDistance) =>
                 prevDistance +
@@ -47,14 +46,8 @@ const MapContainer = () => {
 
     const onClick = (e) => {
         setCoords([...coords, { lat: e.latLng.lat(e), lng: e.latLng.lng(e) }]);
-        // if (coords.length >= 2) {
-        //     setDistance((prevState) => {
-        //         prevState +
-        //             response.rows[0].elements[0].distance.value / 1609.344;
-        //     });
-        // }
     };
-    console.log(distance);
+
     return (
         <LoadScript googleMapsApiKey="AIzaSyAPg1BvA6UXhRQsmuS9m0e3d5tTQAUlqQI">
             <GoogleMap
@@ -74,36 +67,9 @@ const MapContainer = () => {
                     />
                 )}
             </GoogleMap>
+            <button className="submit-route">SUBMIT</button>
         </LoadScript>
     );
 };
-
-// function Map({ location, zoomLevel }) {
-//     const [markers, setMarkers] = useState([{}]);
-
-//     const onClick = (e) => {
-//         setMarkers([...markers, { lat: e.lat, lng: e.lng }]);
-
-//         console.log(markers);
-//     };
-//     const handleAPILoaded = (map, maps) => {};
-//     return (
-//         <div className="map">
-//             <div className="google-map">
-//                 <GoogleMapReact
-//                     onClick={onClick}
-//                     bootstrapURLKeys={{
-//                         key: 'AIzaSyAPg1BvA6UXhRQsmuS9m0e3d5tTQAUlqQI',
-//                     }}
-//                     defaultCenter={location}
-//                     defaultZoom={zoomLevel}
-//                     onGoogleApiLoaded={({ map, maps }) =>
-//                         handleAPILoaded(map, maps)
-//                     }
-//                 ></GoogleMapReact>
-//             </div>
-//         </div>
-//     );
-// }
 
 export default MapContainer;

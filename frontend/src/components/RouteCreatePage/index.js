@@ -1,6 +1,6 @@
 import './RouteCreatePage.css';
 import MapContainer from '../Map';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createRoute } from '../../store/routes';
@@ -10,8 +10,8 @@ function RouteCreatePage() {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-
     const [errors, setErrors] = useState([]);
+    const distance = useSelector((state) => state.distance);
 
     const sessionUser = useSelector((state) => state.session.user);
     const userId = sessionUser.id;
@@ -31,6 +31,7 @@ function RouteCreatePage() {
             description,
             userId,
         };
+        console.log(distance);
         const createdRoute = await dispatch(createRoute(payload));
         if (createdRoute) {
             console.log('route created!!!');
@@ -41,9 +42,6 @@ function RouteCreatePage() {
     return (
         <div>
             <div className="new-route-container">
-                <div className="route-header">
-                    <h1>new route</h1>
-                </div>
                 <div>
                     <form onSubmit={handleSubmit}>
                         <ul>
@@ -53,7 +51,7 @@ function RouteCreatePage() {
                         </ul>
                         <div className="title-container">
                             <input
-                                placeholder="route title"
+                                placeholder="name this route"
                                 className="title-input"
                                 type="text"
                                 value={title}
@@ -63,7 +61,7 @@ function RouteCreatePage() {
                         </div>
                         <div className="description-container">
                             <textarea
-                                placeholder="description"
+                                placeholder="describe the area a little"
                                 cols="10"
                                 rows="5"
                                 className="description-input"
@@ -73,10 +71,15 @@ function RouteCreatePage() {
                                 required
                             />
                         </div>
-                        <button type="submit">Create Route</button>
+                        <div>
+                            <p
+                                value={MapContainer.distance}
+                                className="distance-text"
+                            >
+                                distance:
+                            </p>
+                        </div>
                     </form>
-                    <div>distance:</div>
-                    <div>elevation:</div>
                 </div>
             </div>
             <MapContainer />;
