@@ -10,4 +10,9 @@
 
 .landing {
     color: black;
+    font-size: 28pt;
+    font-weight: bolder;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: white;
+    margin-top: 150px;
 }

@@ -54,8 +54,8 @@ function RouteCreatePage() {
     };
 
     const defaultCenter = {
-        lat: 41.3851,
-        lng: 2.1734,
+        lat: 41.4993,
+        lng: -81.6944,
     };
 
     const onClick = (e) => {
@@ -121,7 +121,7 @@ function RouteCreatePage() {
                     </form>
                 </div>
             </div>
-            <LoadScript googleMapsApiKey="">
+            <LoadScript googleMapsApiKey="AIzaSyAPg1BvA6UXhRQsmuS9m0e3d5tTQAUlqQI">
                 <GoogleMap
                     onClick={onClick}
                     mapContainerStyle={mapStyles}

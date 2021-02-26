@@ -1,12 +1,24 @@
-import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import MapDropdown from './Map';
+import ActivityDropdown from './Activities';
+import DashboardDropdown from './Dashboard';
+import { useState } from 'react';
 
 import './Navigation.css';
 
 function Navigation() {
     const sessionUser = useSelector((state) => state.session.user);
+
+    const [showMenu, setShowMenu] = useState(false);
+    const openMenu = () => {
+        setShowMenu(true);
+    };
+
+    const closeMenu = () => {
+        setShowMenu(false);
+    };
 
     if (sessionUser) {
         return (
@@ -16,24 +28,10 @@ function Navigation() {
                         DOGWLKR
                     </NavLink>
                 </div>
-                <div className="dashboard-nav-link-container">
-                    <NavLink className="dashboard-link" to="/profile">
-                        Dashboard
-                    </NavLink>
-                </div>
-                <div className="activities-nav-link-container">
-                    <NavLink className="activities-link" to="/activities">
-                        Activities
-                    </NavLink>
-                </div>
-                <div className="routes-nav-link-container">
-                    <NavLink className="routes-link" to="/routes/create">
-                        Map
-                    </NavLink>
-                </div>
-                <div className="profile-button-container">
-                    <ProfileButton user={sessionUser} />
-                </div>
+                <DashboardDropdown />
+                <ActivityDropdown />
+                <MapDropdown />
+                <ProfileButton user={sessionUser} />
             </nav>
         );
     } else {

@@ -33,7 +33,7 @@ function FormPageActivity() {
         const createdActivity = await dispatch(createActivity(payload));
         if (createdActivity) {
             console.log('activity created!!!');
-            history.push('/');
+            history.push('/profile');
         }
     };
 

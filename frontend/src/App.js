@@ -38,19 +38,19 @@ function App() {
                     <Route path="/profile">
                         <Profile />
                     </Route>
-                    <Route path="/pets/create">
+                    <Route path="/new/pet">
                         <PetForm />
                     </Route>
-                    <Route exact path="/activities/create">
+                    <Route path="/activities">
                         <Activities />
                     </Route>
-                    <Route path="/activities">
+                    <Route path="/new/activity">
                         <ActivityForm />
                     </Route>
-                    <Route exact path="/routes/id">
+                    <Route exact path="/route/id">
                         <RoutePage />
                     </Route>
-                    <Route exact path="/routes/create">
+                    <Route exact path="/new/route">
                         <CreateRoute />
                     </Route>
                     <Route>Page Not Found</Route>
