@@ -8,12 +8,12 @@ router.post(
     '/',
     asyncHandler(async (req, res) => {
         console.log(req);
-        const { name, photo, breed, birthday, userId } = req.body;
+        const { name, breed, birthday, userId } = req.body;
         const pet = await Pet.create({
-            name: 'name',
-            breed: 'breed',
-            birthday: 'birthday',
-            userId: 'userId',
+            name: name,
+            breed: breed,
+            birthday: birthday,
+            userId: userId,
         });
         return res.json({ pet });
     })
