@@ -41,7 +41,7 @@ function App() {
                     <Route path="/new/pet">
                         <PetForm />
                     </Route>
-                    <Route path="/activities">
+                    <Route alert={alert} path="/activities">
                         <Activities />
                     </Route>
                     <Route path="/new/activity">
