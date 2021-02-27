@@ -1,16 +1,10 @@
 import { csrfFetch } from './csrf';
 
 const SET_ROUTE = 'routes/SET_ROUTE';
-const LOAD_ROUTES = 'routes/LOAD_ROUTES';
 
 const setRoute = (route) => ({
     type: SET_ROUTE,
     payload: route,
-});
-
-const loadRoutes = ({ list }) => ({
-    type: LOAD_ROUTES,
-    list,
 });
 
 // SET ALL ROUTES
@@ -36,24 +30,6 @@ export const createRoute = (route) => async (dispatch) => {
         const route = await res.json();
         dispatch(setRoute(route));
         return route;
-    }
-};
-
-// GET ROUTE BY ID THUNK
-export const getRouteById = (id) => async (dispatch) => {
-    const res = await fetch(`/api/routes/${id}`);
-    if (res.ok) {
-        const route = await res.json();
-        dispatch(createRoute(route));
-    }
-};
-
-// GET A LIST OF ALL ROUTES THUNK
-export const getAllRoutes = (id) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}/routes`);
-    if (res.ok) {
-        const list = await res.json();
-        dispatch(loadRoutes(id));
     }
 };
 
@@ -86,10 +62,6 @@ const routeReducer = (state = initialState, action) => {
             });
 
             return { ...state, ...newState };
-        case LOAD_ROUTES:
-            newState = Object.assign({}, state, newState);
-
-            return newState;
         default:
             return state;
     }

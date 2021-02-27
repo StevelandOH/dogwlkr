@@ -2,11 +2,20 @@ import { csrfFetch } from './csrf';
 
 const SET_PET = 'pets/SET_PET';
 
-const setPet = ({ pet }) => {
+const setPet = (pet) => {
     return {
         type: SET_PET,
         payload: pet,
     };
+};
+// SET ALL Pets
+export const setAllPets = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/pets/${userId}`);
+    if (res.ok) {
+        const pets = await res.json();
+        dispatch(setPet(pets));
+        return pets;
+    }
 };
 
 export const createPet = (pet) => async (dispatch) => {
@@ -30,10 +39,11 @@ const petReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_PET:
-            newState = Object.assign({}, state, {
-                [action.payload.id]: action.payload,
+            const newState = {};
+            action.payload.forEach((pet) => {
+                newState[pet.id] = pet;
             });
-            return newState;
+            return { ...state, ...newState };
         default:
             return state;
     }

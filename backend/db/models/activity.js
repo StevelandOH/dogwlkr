@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
                 type: DataTypes.INTEGER,
             },
+            userId: {
+                allowNull: false,
+                type: DataTypes.INTEGER,
+            },
             type: {
                 allowNull: false,
                 type: DataTypes.STRING,
@@ -42,6 +46,7 @@ module.exports = (sequelize, DataTypes) => {
     );
     Activity.associate = function (models) {
         Activity.belongsTo(models.Pet, { foreignKey: 'petId' });
+        Activity.belongsTo(models.User, { foreignKey: 'userId' });
     };
     return Activity;
 };

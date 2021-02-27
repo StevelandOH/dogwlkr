@@ -2,19 +2,23 @@ import './Profile.css';
 import PetContainer from '../PetContainer';
 import UserContainer from '../UserContainer';
 import RouteContainer from '../RouteContainer';
-import { Redirect } from 'react-router-dom';
 import { setAllRoutes } from '../../store/routes';
+import { setAllPets } from '../../store/pets';
+import { setAllActivities } from '../../store/activities';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { login } from '../../store/session';
 
 function ProfilePage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
+    const usersPets = useSelector((state) => state.pets);
+    const petIds = Object.keys(usersPets);
 
     useEffect(() => {
         if (sessionUser) {
             dispatch(setAllRoutes(sessionUser.id));
+            dispatch(setAllPets(sessionUser.id));
+            petIds.forEach((id) => dispatch(setAllActivities(id)));
         }
     }, [dispatch, sessionUser?.id]);
 

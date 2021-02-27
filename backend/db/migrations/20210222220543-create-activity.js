@@ -13,6 +13,11 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 references: { model: 'Pets' },
             },
+            userId: {
+                allowNull: false,
+                type: Sequelize.INTEGER,
+                references: { model: 'Users' },
+            },
             type: {
                 type: Sequelize.STRING(20),
                 allowNull: false,

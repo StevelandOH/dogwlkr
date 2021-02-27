@@ -7,6 +7,7 @@ module.exports = {
             [
                 {
                     petId: 1,
+                    userId: 1,
                     type: 'Walk',
                     date: '2/22/21',
                     time: '5:31 p',
@@ -18,6 +19,7 @@ module.exports = {
                 },
                 {
                     petId: 1,
+                    userId: 1,
                     type: 'Training',
                     date: '2/22/21',
                     time: '4:31 p',

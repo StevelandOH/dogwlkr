@@ -14,9 +14,9 @@ function FormPageActivity() {
     const [focus, setFocus] = useState('');
     const [duration, setDuration] = useState('');
     const [notes, setNotes] = useState('');
+    const [dogName, setDogName] = useState('');
 
     const sessionUser = useSelector((state) => state.session.user);
-    const userId = sessionUser.id;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,8 +28,10 @@ function FormPageActivity() {
             focus,
             duration,
             notes,
-            userId,
+            dogName,
+            userId: sessionUser.id,
         };
+
         const createdActivity = await dispatch(createActivity(payload));
         if (createdActivity) {
             console.log('activity created!!!');
@@ -49,6 +51,16 @@ function FormPageActivity() {
         <div className="activity-page">
             <div className="activity-container">
                 <form onSubmit={handleSubmit}>
+                    <div className="which-pet-container">
+                        <input
+                            className="which-pet-input"
+                            type="text"
+                            value={dogName}
+                            onChange={(e) => setDogName(e.target.value)}
+                            placeholder="which pet?"
+                            required
+                        />
+                    </div>
                     <div className="type-container">
                         <input
                             className="type-input"
@@ -107,7 +119,7 @@ function FormPageActivity() {
                         />
                     </div>
                     <div className="notes-container">
-                        <textArea
+                        <textarea
                             className="notes-input"
                             value={notes}
                             onChange={addNotes}

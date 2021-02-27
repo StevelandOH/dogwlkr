@@ -1,7 +1,4 @@
 import { csrfFetch } from './csrf';
-import * as activityAction from './activities';
-import * as routeAction from './routes';
-import * as petAction from './pets';
 
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';

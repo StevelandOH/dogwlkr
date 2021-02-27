@@ -13,12 +13,6 @@ module.exports = {
                     username: 'Demo-lition',
                     hashedPassword: bcrypt.hashSync('password'),
                 },
-                {
-                    email: 'stephenszelpal@icloud.com',
-                    imgUrl: '',
-                    username: 'Stephen',
-                    hashedPassword: bcrypt.hashSync('stephen'),
-                },
             ],
             {}
         );

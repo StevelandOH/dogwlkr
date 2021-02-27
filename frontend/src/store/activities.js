@@ -1,12 +1,21 @@
 import { csrfFetch } from './csrf';
 
-const SET_ACTIVITY = 'activities/setActivities';
+const SET_ACTIVITY = 'activities/SET_ACTIVITIES';
 
-const setActivity = ({ activity }) => {
+const setActivity = (activity) => {
     return {
         type: SET_ACTIVITY,
         payload: activity,
     };
+};
+
+export const setAllActivities = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/activities/${userId}`);
+    if (res.ok) {
+        const activities = await res.json();
+        dispatch(setActivity(activities));
+        return activities;
+    }
 };
 
 export const createActivity = (activity) => async (dispatch) => {
@@ -30,10 +39,7 @@ const activityReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_ACTIVITY:
-            newState = Object.assign({}, state, {
-                [action.payload.id]: action.payload,
-            });
-            return newState;
+            return { ...state, ...action.payload };
         default:
             return state;
     }

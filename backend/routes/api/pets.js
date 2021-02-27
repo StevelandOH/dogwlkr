@@ -18,4 +18,14 @@ router.post(
         return res.json({ pet });
     })
 );
+
+router.get(
+    '/:id',
+    asyncHandler(async (req, res) => {
+        const id = parseInt(req.params.id, 10);
+        const pets = await Pet.findAll({ where: { userId: id } });
+        return res.json(pets);
+    })
+);
+
 module.exports = router;
