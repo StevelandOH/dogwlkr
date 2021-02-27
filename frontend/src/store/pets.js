@@ -39,11 +39,7 @@ const petReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_PET:
-            const newState = {};
-            action.payload.forEach((pet) => {
-                newState[pet.id] = pet;
-            });
-            return { ...state, ...newState };
+            return { ...state, ...action.payload };
         default:
             return state;
     }

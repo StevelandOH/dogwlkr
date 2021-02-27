@@ -2,10 +2,12 @@ import { csrfFetch } from './csrf';
 
 const SET_ROUTE = 'routes/SET_ROUTE';
 
-const setRoute = (route) => ({
-    type: SET_ROUTE,
-    payload: route,
-});
+const setRoute = (route) => {
+    return {
+        type: SET_ROUTE,
+        payload: route,
+    };
+};
 
 // SET ALL ROUTES
 export const setAllRoutes = (userId) => async (dispatch) => {
@@ -55,13 +57,7 @@ const routeReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_ROUTE:
-            const newState = {};
-            console.log(action.payload);
-            action.payload.forEach((route) => {
-                newState[route.id] = route;
-            });
-
-            return { ...state, ...newState };
+            return { ...state, ...action.payload };
         default:
             return state;
     }

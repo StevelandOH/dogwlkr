@@ -7,18 +7,17 @@ import { setAllPets } from '../../store/pets';
 import { setAllActivities } from '../../store/activities';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import ActivityForm from '../ActivityForm';
 
 function ProfilePage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const usersPets = useSelector((state) => state.pets);
-    const petIds = Object.keys(usersPets);
 
     useEffect(() => {
         if (sessionUser) {
             dispatch(setAllRoutes(sessionUser.id));
             dispatch(setAllPets(sessionUser.id));
-            petIds.forEach((id) => dispatch(setAllActivities(id)));
+            dispatch(setAllActivities(sessionUser.id));
         }
     }, [dispatch, sessionUser?.id]);
 

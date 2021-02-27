@@ -31,7 +31,7 @@ router.post(
             petId: pet.id,
             userId: userId,
         });
-        return res.json(activity);
+        return res.json({ activity });
     })
 );
 
