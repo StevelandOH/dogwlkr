@@ -33,17 +33,17 @@ function ActivitiesDisplayPage({}) {
 
     const style = {
         overlay: {
-            position: 'fixed',
+            // position: 'fixed',
+            textAlign: 'center',
             zIndex: '1000',
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.1)',
+            top: '60px',
+            backgroundColor: 'rgba(252,76, 2, 0.1)',
         },
         content: {
-            position: 'absolute',
-            top: '120px',
-            left: '250px',
-            right: '250px',
-            bottom: '40px',
+            // position: 'absolute',
+
+            height: '50%',
+            width: '50%',
             border: '1px solid #ccc',
             background: '#fff',
             overflow: 'auto',
