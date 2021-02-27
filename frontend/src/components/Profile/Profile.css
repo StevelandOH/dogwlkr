@@ -1,0 +1,40 @@
+.profile-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.profile-top-half,
+.profile-bottom-half {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-card-container,
+.pet-card-container {
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+
+    border: 1px solid black;
+}
+
+.route-card-container {
+    text-align: center;
+    width: 60%;
+    border: 1px solid black;
+}
+
+.left-profile-container,
+.right-profile-container {
+    text-align: center;
+    width: 20%;
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+.user-card,
+.pet-card,
+.route-card {
+    text-align: center;
+}

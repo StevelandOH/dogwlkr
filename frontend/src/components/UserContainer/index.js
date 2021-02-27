@@ -1,7 +1,26 @@
 import './UserContainer.css';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-function ProfileUserCard() {
-    return <h1 className="landing">ProfileUserCard</h1>;
+function UserContainer() {
+    const sessionUser = useSelector((state) => state.session.user);
+
+    if (!sessionUser) return null;
+
+    return (
+        <div className="user-container">
+            <h1>User Details</h1>
+            <div>
+                <div className="usercard-username">
+                    TYPE: {sessionUser.username}
+                </div>
+                <div className="usercard-email">TYPE: {sessionUser.email}</div>
+                <div className="usercard-imgUrl">
+                    DATE: {sessionUser.imgUrl}
+                </div>
+            </div>
+        </div>
+    );
 }
 
-export default ProfileUserCard;
+export default UserContainer;

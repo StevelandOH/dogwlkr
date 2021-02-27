@@ -12,6 +12,8 @@ import ActivityForm from '../ActivityForm';
 function ProfilePage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
+    const routes = useSelector((state) => state.routes);
+    const pets = useSelector((state) => state.pets);
 
     useEffect(() => {
         if (sessionUser) {
@@ -22,17 +24,37 @@ function ProfilePage() {
     }, [dispatch, sessionUser?.id]);
 
     if (!sessionUser) return null;
+    if (!routes) return null;
+    if (!pets) return null;
 
     return (
-        <div>
-            <div className="pet-card-container">
-                <PetContainer className="pet-card" />
+        <div className="profile-flex-container">
+            <div className="profile-top-half">
+                <div className="user-card-container">
+                    <UserContainer className="user-card" />
+                </div>
+                <div className="pet-card-container">
+                    {Object.values(pets).map((pet) => (
+                        <PetContainer
+                            pet={pet}
+                            key={pet.id}
+                            className="pet-card"
+                        />
+                    ))}
+                </div>
             </div>
-            <div className="user-card-container">
-                <UserContainer className="user-card" />
-            </div>
-            <div className="route-card-container">
-                <RouteContainer className="route-card" />
+            <div className="profile-bottom-half">
+                <div className="left-profile-container"></div>
+                <div className="route-card-container">
+                    {Object.values(routes).map((route) => (
+                        <RouteContainer
+                            route={route}
+                            key={route.id}
+                            className="route-card"
+                        />
+                    ))}
+                </div>
+                <div className="right-profile-container"></div>
             </div>
         </div>
     );
