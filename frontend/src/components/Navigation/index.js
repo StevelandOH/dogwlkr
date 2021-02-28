@@ -3,15 +3,12 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import MapDropdown from './Map';
 import ActivityDropdown from './Activities';
-import DashboardDropdown from './Dashboard';
-import { useState } from 'react';
+import AddPet from './AddPet';
 
 import './Navigation.css';
 
 function Navigation() {
     const sessionUser = useSelector((state) => state.session.user);
-
-    const [showMenu, setShowMenu] = useState(false);
 
     if (sessionUser) {
         return (
@@ -22,7 +19,7 @@ function Navigation() {
                     </NavLink>
                 </div>
                 <div>
-                    <DashboardDropdown />
+                    <AddPet />
                 </div>
 
                 <div>

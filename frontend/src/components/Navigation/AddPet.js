@@ -5,7 +5,7 @@ import { createPet } from '../../store/pets';
 import { useHistory } from 'react-router-dom';
 import './Navigation.css';
 
-function DashboardDropdown() {
+function AddPet() {
     Modal.setAppElement(document.querySelector('.nav-logged-in'));
     const dispatch = useDispatch();
     const history = useHistory();
@@ -121,4 +121,4 @@ function DashboardDropdown() {
     );
 }
 
-export default DashboardDropdown;
+export default AddPet;
