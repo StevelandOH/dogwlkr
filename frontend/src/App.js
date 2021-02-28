@@ -35,7 +35,7 @@ function App() {
                     <Route path="/profile">
                         <Profile />
                     </Route>
-                    <Route alert={alert} path="/activities">
+                    <Route path="/activities">
                         <Activities />
                     </Route>
                     <Route path="/new/route">

@@ -1,6 +1,5 @@
 import './UserContainer.css';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function UserContainer() {
     const sessionUser = useSelector((state) => state.session.user);
