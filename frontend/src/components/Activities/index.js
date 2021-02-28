@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAllActivities } from '../../store/activities';
 import { HeaderCell, Table, Column, Cell } from 'rsuite-table';
-
 import Modal from 'react-modal';
 
 function ActivitiesDisplayPage({}) {
@@ -33,15 +32,12 @@ function ActivitiesDisplayPage({}) {
 
     const style = {
         overlay: {
-            // position: 'fixed',
             textAlign: 'center',
-            zIndex: '1000',
             top: '60px',
-            backgroundColor: 'rgba(252,76, 2, 0.1)',
+            backgroundColor: 'rgba(0,0, 0, 0.25)',
+            zIndex: '1000',
         },
         content: {
-            // position: 'absolute',
-
             height: '50%',
             width: '50%',
             border: '1px solid #ccc',
@@ -155,10 +151,6 @@ function ActivitiesDisplayPage({}) {
                     <HeaderCell>Focus</HeaderCell>
                     <Cell dataKey="focus" />
                 </Column>
-                {/* <Column align="center" flexGrow sortable>
-                    <HeaderCell>Notes</HeaderCell>
-                    <Cell dataKey="notes" />
-                </Column> */}
                 <Column width={100} fixed="left">
                     <HeaderCell>Notes</HeaderCell>
                     <Cell dataKey="notes">
@@ -169,30 +161,23 @@ function ActivitiesDisplayPage({}) {
                             return (
                                 <span>
                                     <a>
-                                        {' '}
                                         <i
                                             className="fas fa-glasses"
                                             onClick={setModalIsOpenToTrue}
                                         ></i>
-                                        <Modal
-                                            style={style}
-                                            isOpen={modalIsOpen}
-                                        >
-                                            <div>{item.notes}</div>
-                                            <button
-                                                onClick={setModalIsOpenToFalse}
-                                            >
-                                                x
-                                            </button>
-                                        </Modal>
-                                    </a>{' '}
+                                    </a>
+                                    <Modal style={style} isOpen={modalIsOpen}>
+                                        <div>{item.notes}</div>
+                                        <button onClick={setModalIsOpenToFalse}>
+                                            x
+                                        </button>
+                                    </Modal>
                                 </span>
                             );
                         }}
                     </Cell>
                 </Column>
             </Table>
-            {/* <ModalComponent table={Table} /> */}
         </div>
     );
 }

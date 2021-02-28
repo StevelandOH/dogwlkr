@@ -11,15 +11,20 @@ function MapDropdown() {
     return (
         <div>
             <div className="map-title-container" onClick={toggleMenu}>
-                Maps🔻
+                │ map │ ⌄
             </div>
 
             <div onMouseLeave={toggleMenu} onClick={toggleMenu}>
                 {showMenu && (
                     <div className="map-dropdown-container">
-                        <NavLink className="create-route-link" to="/new/route">
-                            Create a Route
-                        </NavLink>
+                        <div className="link-container">
+                            <NavLink
+                                className="create-route-link"
+                                to="/new/route"
+                            >
+                                Create a Route
+                            </NavLink>
+                        </div>
                     </div>
                 )}
             </div>

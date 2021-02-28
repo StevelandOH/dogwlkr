@@ -32,8 +32,8 @@ function ProfileButton({ user }) {
 
             <div onMouseLeave={toggleMenu} onClick={toggleMenu}>
                 {showMenu && (
-                    <div className="dropdown-container">
-                        <p style={{ color: 'white' }}>{user.username}</p>
+                    <div className="logout-dropdown-container">
+                        <p>{user.username}</p>
                         <p>{user.email}</p>
                         <button className="logout-button" onClick={logout}>
                             logout

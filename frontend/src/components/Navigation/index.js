@@ -21,10 +21,19 @@ function Navigation() {
                         DOGWLKR
                     </NavLink>
                 </div>
-                <DashboardDropdown />
-                <ActivityDropdown />
-                <MapDropdown />
-                <ProfileButton user={sessionUser} />
+                <div>
+                    <DashboardDropdown />
+                </div>
+
+                <div>
+                    <ActivityDropdown />
+                </div>
+                <div>
+                    <MapDropdown />
+                </div>
+                <div>
+                    <ProfileButton user={sessionUser} />
+                </div>
             </nav>
         );
     } else {

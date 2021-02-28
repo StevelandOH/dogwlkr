@@ -1,5 +1,6 @@
 .nav-logged-in {
     display: flex;
+    z-index: 100000;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -23,8 +24,17 @@
 .activity-title-container,
 .dashboard-title-container {
     padding: 15px;
-    margin-right: 30px;
+    margin-right: 150px;
     position: relative;
+}
+.add-a-pet {
+    cursor: cell;
+    padding: 15px;
+    margin-right: 150px;
+    position: relative;
+}
+.home-link-container {
+    padding-top: 5px;
 }
 
 .home-link {
@@ -34,76 +44,50 @@
     text-decoration: none;
 }
 
-.home-link-container {
-    padding-top: 5px;
-}
-
 .logout-container {
     text-align: right;
     width: 300px;
     box-sizing: border-box;
     position: relative;
+    cursor: pointer;
 }
 
 .logout-dropdown-container {
-    padding: 25px;
-    font-size: 8pt;
+    padding: 25px 50px 50px 25px;
+    z-index: 10000;
+    font-size: 12pt;
     text-decoration: overline;
     position: absolute;
     margin-top: 5px;
     margin-left: 100px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
     border-radius: 2em 0.25em 1em 1em;
     text-align: center;
     box-shadow: 0px 5px 5px 5px rgba(219, 218, 218, 0.7);
+    padding: 25px 25px 50px 25px;
 }
 
-.dashboard-dropdown-container {
+.dashboard-dropdown-container,
+.activity-dropdown-container,
+.map-dropdown-container {
+    z-index: 10000;
     position: absolute;
     margin-top: 5px;
-    padding: 25px;
-    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px 25px 50px 25px;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     border-radius: 0.25em 2em 1em 1em;
-    text-align: center;
     box-shadow: 0px 5px 5px 5px rgba(219, 218, 218, 0.7);
 }
+
 .create-activity-link,
 .activity-link,
 .create-route-link,
 .dashboard-link {
-    text-decoration: overline;
-    color: black;
-    font-size: 8pt;
-}
-
-.activity-dropdown-container {
-    position: absolute;
-    margin-top: 5px;
-    padding: 25px;
-    background-color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
     color: white;
-    border-radius: 0.25em 2em 1em 1em;
-    text-align: center;
-    box-shadow: 0px 5px 5px 5px rgba(219, 218, 218, 0.7);
-}
-
-.create-activity-link,
-.activity-link {
-    text-decoration: overline;
-    color: black;
-    font-size: 8pt;
-}
-.map-dropdown-container {
-    position: absolute;
-    margin-top: 5px;
-    padding: 25px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: white;
-    border-radius: 0.25em 2em 1em 1em;
-    text-align: center;
-    box-shadow: 0px 5px 5px 5px rgba(219, 218, 218, 0.7);
+    font-size: 12pt;
 }
 
 .logout-picture {
@@ -118,4 +102,19 @@
     margin-top: 0px;
     border-radius: 10em 10em 10em 0em;
     height: 30px;
+}
+
+.link-container {
+    padding: 25px 10px 25px 0px;
+}
+
+.pet-form-container {
+    padding: 50px;
+}
+
+.add-pet-button,
+.name-input,
+.breed-input,
+.birthday-input {
+    margin-top: 30px;
 }

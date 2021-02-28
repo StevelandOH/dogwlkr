@@ -11,25 +11,25 @@ function ActivityDropdown() {
     return (
         <div>
             <div className="activity-title-container" onClick={toggleMenu}>
-                Activities🔻
+                │ activities │ ⌄
             </div>
 
             <div onMouseLeave={toggleMenu} onClick={toggleMenu}>
                 {showMenu && (
                     <div className="activity-dropdown-container">
-                        <p>
+                        <div className="link-container">
                             <NavLink
                                 className="create-activity-link"
                                 to="/new/activity"
                             >
                                 Add an Activity
                             </NavLink>
-                        </p>
-                        <p>
+                        </div>
+                        <div className="link-container">
                             <NavLink className="activity-link" to="/activities">
                                 View Activities
                             </NavLink>
-                        </p>
+                        </div>
                     </div>
                 )}
             </div>
