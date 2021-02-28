@@ -121,7 +121,7 @@ function RouteCreatePage() {
                     </form>
                 </div>
             </div>
-            <LoadScript googleMapsApiKey="">
+            <LoadScript googleMapsApiKey="AIzaSyAPg1BvA6UXhRQsmuS9m0e3d5tTQAUlqQI">
                 <GoogleMap
                     onClick={onClick}
                     mapContainerStyle={mapStyles}

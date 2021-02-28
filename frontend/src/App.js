@@ -7,9 +7,6 @@ import Landing from '../src/components/Landing';
 import Activities from '../src/components/Activities';
 import Profile from '../src/components/Profile';
 import CreateRoute from '../src/components/CreateRoute';
-import RoutePage from './components/RoutePage';
-import PetForm from '../src/components/PetForm';
-import ActivityForm from '../src/components/ActivityForm';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 
@@ -38,17 +35,8 @@ function App() {
                     <Route path="/profile">
                         <Profile />
                     </Route>
-                    <Route path="/new/pet">
-                        <PetForm />
-                    </Route>
                     <Route alert={alert} path="/activities">
                         <Activities />
-                    </Route>
-                    <Route path="/new/activity">
-                        <ActivityForm />
-                    </Route>
-                    <Route path="/route/:routeId">
-                        <RoutePage />
                     </Route>
                     <Route path="/new/route">
                         <CreateRoute />
