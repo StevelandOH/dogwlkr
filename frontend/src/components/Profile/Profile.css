@@ -23,6 +23,15 @@
     width: 50%;
     overflow: scroll;
     background-color: rgb(235, 235, 235);
+}
+
+.pet-card-container {
+    border-left: 5px solid rgba(31, 30, 30, 0.1);
+    border-bottom: 5px solid rgba(252, 76, 2, 0.4);
+}
+
+.user-card-container {
+    border-right: 5px solid rgba(2, 2, 2, 0.1);
     border-bottom: 5px solid rgba(252, 76, 2, 0.4);
 }
 
@@ -30,8 +39,8 @@
     text-align: center;
     width: 50%;
     background-color: rgb(216, 216, 216);
-    border-left: 2.5px solid rgba(252, 76, 2, 0.4);
-    border-right: 2.5px solid rgba(252, 76, 2, 0.4);
+    border-left: 2.5px solid rgba(0, 0, 0, 0.2);
+    border-right: 2.5px solid rgba(0, 0, 0, 0.2);
 }
 
 .left-profile-container,

@@ -34,19 +34,8 @@ function ActivitiesDisplayPage({}) {
         overlay: {
             textAlign: 'center',
             top: '60px',
-            backgroundColor: 'rgba(0,0, 0, 0.25)',
+            backgroundColor: 'rgba(0,0, 0, 0.1)',
             zIndex: '1000',
-        },
-        content: {
-            height: '50%',
-            width: '50%',
-            border: '1px solid #ccc',
-            background: '#fff',
-            overflow: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            borderRadius: '4px',
-            outline: 'none',
-            padding: '20px',
         },
     };
 
@@ -96,7 +85,7 @@ function ActivitiesDisplayPage({}) {
         <div className="table-container">
             <Table
                 data={getData()}
-                height={400}
+                height={1080}
                 sortColumn={sortColumn}
                 sortType={sortType}
                 onSortColumn={fakeLoader}
@@ -166,7 +155,11 @@ function ActivitiesDisplayPage({}) {
                                             onClick={setModalIsOpenToTrue}
                                         ></i>
                                     </a>
-                                    <Modal style={style} isOpen={modalIsOpen}>
+                                    <Modal
+                                        className="act-modal"
+                                        style={style}
+                                        isOpen={modalIsOpen}
+                                    >
                                         <div>{item.notes}</div>
                                         <button onClick={setModalIsOpenToFalse}>
                                             x

@@ -22,7 +22,7 @@ function MapDropdown() {
                                 className="create-route-link"
                                 to="/new/route"
                             >
-                                Create a Route
+                                Create Route
                             </NavLink>
                         </div>
                     </div>

@@ -95,7 +95,7 @@ function ActivityDropdown() {
                             onClick={toggleModal}
                             className="create-activity-link"
                         >
-                            Add an Activity
+                            Add Activity
                         </div>
                         <div className="link-container">
                             <NavLink className="activity-link" to="/activities">

@@ -25,6 +25,7 @@
 .dashboard-title-container {
     padding: 15px;
     margin-right: 150px;
+    cursor: pointer;
     position: relative;
 }
 .add-a-pet {
@@ -53,32 +54,34 @@
 }
 
 .logout-dropdown-container {
+    cursor: pointer;
     padding: 25px 50px 50px 25px;
     z-index: 10000;
     font-size: 12pt;
-    text-decoration: overline;
+    text-decoration: none;
     position: absolute;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-left: 100px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     border-radius: 2em 0.25em 1em 1em;
     text-align: center;
-    box-shadow: 0px 5px 5px 5px rgba(219, 218, 218, 0.7);
+    box-shadow: 2px 2px 2px 2px rgba(2, 2, 2, 0.4);
     padding: 25px 25px 50px 25px;
 }
 
 .dashboard-dropdown-container,
 .activity-dropdown-container,
 .map-dropdown-container {
+    cursor: pointer;
     z-index: 10000;
     position: absolute;
-    margin-top: 5px;
+    margin-top: 15px;
     padding: 25px 25px 50px 25px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     border-radius: 0.25em 2em 1em 1em;
-    box-shadow: 0px 5px 5px 5px rgba(219, 218, 218, 0.7);
+    box-shadow: 2px 2px 2px 2px rgba(2, 2, 2, 0.4);
 }
 
 .create-activity-link,
@@ -88,6 +91,7 @@
     text-decoration: none;
     color: white;
     font-size: 12pt;
+    margin: 20px;
 }
 
 .logout-picture {
