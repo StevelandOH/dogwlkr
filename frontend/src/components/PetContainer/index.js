@@ -2,16 +2,13 @@ import './PetContainer.css';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-function PetContainer({ pet }) {
+function PetContainer({ pet, photo }) {
     return (
         <div className="pet-container">
-            <h1>Pet Details</h1>
-            <div>
-                <div className="pet-title">NAME: {pet.name}</div>
-                <div className="pet-mapImg">IMGURL: {pet.imgUrl}</div>
-                <div className="pet-photo">BREED: {pet.breed}</div>
-                <div className="pet-description">BIRTHDAY: {pet.birthday}</div>
-            </div>
+            <h3 className="pet-title">{pet.name}</h3>
+            <img className="pet-mapImg" src={photo}></img>
+            <div className="pet-photo">{pet.breed}</div>
+            <div className="pet-description">{pet.birthday}</div>
         </div>
     );
 }

@@ -1,0 +1,28 @@
+.route-mapImg {
+    width: 250px;
+    height: 250px;
+    border-radius: 10em;
+}
+
+.route-photo {
+    width: 350px;
+    height: 350px;
+    border-radius: 15em;
+}
+
+.route-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 3em;
+    margin: 30px;
+    background-color: rgb(253, 235, 227);
+    box-shadow: -5px 5px 5px 3px rgba(252, 76, 2, 0.5);
+}
+
+.route-title,
+.route-mapImg,
+.route-description,
+.route-distance {
+    padding: 20px;
+}

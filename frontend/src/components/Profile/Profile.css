@@ -4,37 +4,40 @@
     flex-direction: column;
 }
 
-.profile-top-half,
-.profile-bottom-half {
+.profile-top-half {
+    text-align: center;
     display: flex;
     flex-direction: row;
+    height: 50vh;
+}
+.profile-bottom-half {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    height: 500vh;
 }
 
 .user-card-container,
 .pet-card-container {
     text-align: center;
-    padding: 20px;
     width: 50%;
-
-    border: 1px solid black;
+    overflow: scroll;
+    background-color: rgb(235, 235, 235);
+    border-bottom: 5px solid rgba(252, 76, 2, 0.4);
 }
 
 .route-card-container {
     text-align: center;
-    width: 60%;
-    border: 1px solid black;
+    width: 50%;
+    background-color: rgb(216, 216, 216);
+    border-left: 2.5px solid rgba(252, 76, 2, 0.4);
+    border-right: 2.5px solid rgba(252, 76, 2, 0.4);
 }
 
 .left-profile-container,
 .right-profile-container {
     text-align: center;
-    width: 20%;
-    background-color: lightgray;
-    border: 1px solid black;
-}
-
-.user-card,
-.pet-card,
-.route-card {
-    text-align: center;
+    width: 25%;
+    background-color: rgb(240, 240, 240);
+    /* border: 1px solid black; */
 }

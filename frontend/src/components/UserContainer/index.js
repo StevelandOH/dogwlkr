@@ -1,5 +1,6 @@
 import './UserContainer.css';
 import { useSelector } from 'react-redux';
+import stephen from '../../images/stephen copy.jpg';
 
 function UserContainer() {
     const sessionUser = useSelector((state) => state.session.user);
@@ -8,16 +9,9 @@ function UserContainer() {
 
     return (
         <div className="user-container">
-            <h1>User Details</h1>
-            <div>
-                <div className="usercard-username">
-                    TYPE: {sessionUser.username}
-                </div>
-                <div className="usercard-email">TYPE: {sessionUser.email}</div>
-                <div className="usercard-imgUrl">
-                    DATE: {sessionUser.imgUrl}
-                </div>
-            </div>
+            <h2 className="usercard-username">{sessionUser.username}</h2>
+            <img className="usercard-imgUrl" src={stephen}></img>
+            <div className="usercard-email">HMU @ {sessionUser.email}</div>
         </div>
     );
 }
