@@ -7,7 +7,6 @@ import { setAllPets } from '../../store/pets';
 import { setAllActivities } from '../../store/activities';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ActivityForm from '../ActivityForm';
 
 function ProfilePage() {
     const dispatch = useDispatch();
