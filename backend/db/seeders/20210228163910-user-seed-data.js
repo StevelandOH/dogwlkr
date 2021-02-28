@@ -8,6 +8,13 @@ module.exports = {
             'Users',
             [
                 {
+                    email: 'stephen@aol.com',
+                    imgUrl:
+                        '/Users/stephen/Desktop/dogwlkr/backend/db/seed-data/stephen.jpg',
+                    username: 'StevelandOH',
+                    hashedPassword: bcrypt.hashSync('stephen'),
+                },
+                {
                     email: 'demo@user.io',
                     imgUrl: '',
                     username: 'Demo-lition',
