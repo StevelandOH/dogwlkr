@@ -26,10 +26,6 @@ function AddPet() {
         modalIsOpen ? setModalIsOpen(false) : setModalIsOpen(true);
     };
 
-    useEffect(() => {
-        dispatch(setAllPets(sessionUser.id));
-    }, [dispatch, sessionUser.id]);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setModalIsOpen(false);

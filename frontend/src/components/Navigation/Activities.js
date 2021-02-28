@@ -46,10 +46,6 @@ function ActivityDropdown() {
         },
     };
 
-    useEffect(() => {
-        dispatch(setAllActivities(sessionUser.id));
-    }, [dispatch, sessionUser.id]);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setModalIsOpen(false);
@@ -83,7 +79,7 @@ function ActivityDropdown() {
                     setErrors(newErrors);
                 }
             });
-        history.push('/profile');
+        history.push('/activities');
     };
 
     return (
