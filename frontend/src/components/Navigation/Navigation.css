@@ -112,9 +112,63 @@
     padding: 50px;
 }
 
-.add-pet-button,
-.name-input,
-.breed-input,
-.birthday-input {
-    margin-top: 30px;
+.modal-container {
+    z-index: 1000;
+    margin-top: 20px;
+    margin-left: 35%;
+    margin-right: 35%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    border-radius: 0.25em;
+    align-items: center;
+    box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
+    padding: 10px;
+}
+
+.modal-container-pet {
+    z-index: 1000;
+    width: 300px;
+    margin-top: 100px;
+    margin-left: 40%;
+    margin-right: 40%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    border-radius: 0.25em;
+    padding: 20px;
+    box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
+}
+
+.modal-container::placeholder {
+    color: black;
+}
+
+.a {
+    margin-top: 10px;
+    height: 30px;
+    width: 75%;
+    border: none;
+    box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
+    text-align: center;
+    color: lightgray;
+    border-radius: 0.25em;
+}
+
+.type-container,
+.which-pet-container,
+.date-container,
+.time-container,
+.actDistance-container,
+.focus-container,
+.duration-container,
+.notes-container,
+.activity-button {
+    margin-top: 10px;
+    font-size: 10pt;
+}
+
+.activity-add-title,
+.or {
+    color: #fc4c02;
+    margin: 10px;
+    /* margin-top: 20px; */
 }

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPet } from '../../store/pets';
@@ -7,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import './Navigation.css';
 
 function DashboardDropdown() {
-    Modal.setAppElement(document.getElementById('root'));
+    Modal.setAppElement(document.querySelector('.nav-logged-in'));
     const dispatch = useDispatch();
     const history = useHistory();
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -23,8 +22,7 @@ function DashboardDropdown() {
     const addBirthday = (e) => setBirthday(e.target.value);
 
     const toggleModal = () => {
-        if (modalIsOpen) setModalIsOpen(false);
-        else if (!modalIsOpen) setModalIsOpen(true);
+        modalIsOpen ? setModalIsOpen(false) : setModalIsOpen(true);
     };
 
     const handleSubmit = async (e) => {
@@ -44,22 +42,9 @@ function DashboardDropdown() {
 
     const style = {
         overlay: {
-            position: 'fixed',
             textAlign: 'center',
             backgroundColor: 'rgba(0,0, 0, 0.9)',
             zIndex: '100000',
-        },
-        content: {
-            position: 'absolute',
-            top: '100px',
-            left: '40%',
-
-            height: '500px',
-            width: '300px',
-            border: '1px solid #ccc',
-            background: '#fff',
-            borderRadius: '3em',
-            outline: 'none',
         },
     };
 
@@ -69,17 +54,19 @@ function DashboardDropdown() {
                 │ add pet │ ⌄
             </div>
             <Modal
+                className="modal-container-pet"
                 style={style}
                 isOpen={modalIsOpen}
-                parentSelector={() => document.querySelector('.add-a-pet')}
+                parentSelector={() => document.querySelector('.nav-logged-in')}
             >
                 <div>
-                    <h1>Add a Pet</h1>
+                    <h1 className="activity-add-title">Add a Pet</h1>
                     <form
                         className="pet-form-container"
                         onSubmit={handleSubmit}
                     >
                         <div className="name-container">
+                            <label>name</label>
                             <input
                                 className="name-input"
                                 type="text"
@@ -88,9 +75,13 @@ function DashboardDropdown() {
                                 placeholder="Name"
                                 required
                             />
+                            <div className="activity-add-title">
+                                __________________
+                            </div>
                         </div>
 
                         <div className="breed-container">
+                            <label>breed</label>
                             <input
                                 className="breed-input"
                                 type="text"
@@ -99,9 +90,13 @@ function DashboardDropdown() {
                                 placeholder="breed(ish)"
                                 required
                             />
+                            <div className="activity-add-title">
+                                __________________
+                            </div>
                         </div>
 
                         <div className="birthday-container">
+                            <label>birthday</label>
                             <input
                                 className="birthday-input"
                                 type="text"
@@ -110,6 +105,9 @@ function DashboardDropdown() {
                                 placeholder="birthday(ish)"
                                 required
                             />
+                            <div className="activity-add-title">
+                                __________________
+                            </div>
                         </div>
 
                         <button className="add-pet-button" type="submit">
