@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createActivity } from '../../store/activities';
+import { createActivity, setAllActivities } from '../../store/activities';
 
 function ActivityDropdown() {
     const dispatch = useDispatch();
@@ -18,6 +18,7 @@ function ActivityDropdown() {
     const [duration, setDuration] = useState('');
     const [notes, setNotes] = useState('');
     const [dogName, setDogName] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const sessionUser = useSelector((state) => state.session.user);
 
@@ -45,26 +46,44 @@ function ActivityDropdown() {
         },
     };
 
+    useEffect(() => {
+        dispatch(setAllActivities(sessionUser.id));
+    }, [dispatch, sessionUser.id]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const payload = {
-            type,
-            date,
-            time,
-            actDistance,
-            focus,
-            duration,
-            notes,
-            dogName,
-            userId: sessionUser.id,
-        };
-
-        const createdActivity = await dispatch(createActivity(payload));
-        if (createdActivity) {
-            console.log('activity created!!!');
-            toggleModal();
-            history.push('/profile');
-        }
+        setModalIsOpen(false);
+        let newErrors = [];
+        dispatch(
+            createActivity({
+                type,
+                date,
+                time,
+                actDistance,
+                focus,
+                duration,
+                notes,
+                dogName,
+                userId: sessionUser.id,
+            })
+        )
+            .then(() => {
+                setType('');
+                setDate('');
+                setTime('');
+                setActDistance('');
+                setFocus('');
+                setDuration('');
+                setNotes('');
+            })
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) {
+                    newErrors = data.errors;
+                    setErrors(newErrors);
+                }
+            });
+        history.push('/profile');
     };
 
     return (
@@ -94,9 +113,9 @@ function ActivityDropdown() {
                 className="modal-container"
                 style={style}
                 isOpen={modalIsOpen}
-                parentSelector={() =>
-                    document.querySelector('.activity-title-container')
-                }
+                // parentSelector={() =>
+                //     document.querySelector('.activity-title-container')
+                // }
             >
                 <div>
                     <h1 className="activity-add-title">Add Activity</h1>

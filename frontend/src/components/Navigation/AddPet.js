@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPet } from '../../store/pets';
+import { createPet, setAllPets } from '../../store/pets';
 import { useHistory } from 'react-router-dom';
 import './Navigation.css';
+import { useEffect } from 'react';
 
 function AddPet() {
-    Modal.setAppElement(document.querySelector('.nav-logged-in'));
     const dispatch = useDispatch();
     const history = useHistory();
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [name, setName] = useState('');
     const [breed, setBreed] = useState('');
     const [birthday, setBirthday] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const sessionUser = useSelector((state) => state.session.user);
     const userId = sessionUser.id;
@@ -25,19 +26,28 @@ function AddPet() {
         modalIsOpen ? setModalIsOpen(false) : setModalIsOpen(true);
     };
 
+    useEffect(() => {
+        dispatch(setAllPets(sessionUser.id));
+    }, [dispatch, sessionUser.id]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const payload = {
-            name,
-            breed,
-            birthday,
-            userId,
-        };
-        const createdPet = await dispatch(createPet(payload));
-        if (createdPet) {
-            console.log('pet created!!!');
-            history.push('/profile');
-        }
+        setModalIsOpen(false);
+        let newErrors = [];
+        dispatch(createPet({ name, breed, birthday, userId }))
+            .then(() => {
+                setName('');
+                setBreed('');
+                setBirthday('');
+            })
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) {
+                    newErrors = data.errors;
+                    setErrors(newErrors);
+                }
+            });
+        history.push('/profile');
     };
 
     const style = {
@@ -57,7 +67,7 @@ function AddPet() {
                 className="modal-container-pet"
                 style={style}
                 isOpen={modalIsOpen}
-                parentSelector={() => document.querySelector('.nav-logged-in')}
+                // parentSelector={() => document.querySelector('.nav-logged-in')}
             >
                 <div>
                     <h1 className="activity-add-title">Add a Pet</h1>
