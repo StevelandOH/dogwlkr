@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect, NavLink, useHistory } from 'react-router-dom';
 import './SignupForm.css';
 import { createUser } from '../../store/session';
 
@@ -9,15 +9,16 @@ function FormPageSignup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [image, setImage] = useState(null);
+
     const [errors, setErrors] = useState([]);
 
+    const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
 
     const addUsername = (e) => setUsername(e.target.value);
     const addEmail = (e) => setEmail(e.target.value);
-    const addImage = (e) => setImage(e.target.value);
+
     const addPassword = (e) => setPassword(e.target.value);
     const addConfirmPassword = (e) => setConfirmPassword(e.target.value);
 
@@ -25,22 +26,30 @@ function FormPageSignup() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let newErrors = [];
-        dispatch(createUser({ username, email, password, image }))
-            .then(() => {
-                setUsername('');
-                setEmail('');
-                setPassword('');
-                setImage(null);
-            })
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) {
-                    newErrors = data.errors;
-                    setErrors(newErrors);
-                }
-            });
+
+        dispatch(createUser({ username, password, email }));
+
+        history.push('/profile');
     };
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log(username, email, password);
+    //     let newErrors = [];
+    //     dispatch(createUser({ username, email, password }))
+    //         .then(() => {
+    //             setUsername('');
+    //             setEmail('');
+    //             setPassword('');
+    //         })
+    //         .catch(async (res) => {
+    //             const data = await res.json();
+    //             if (data && data.errors) {
+    //                 newErrors = data.errors;
+    //                 setErrors(newErrors);
+    //             }
+    //         });
+    // };
 
     return (
         <div className="signup-page">
@@ -93,14 +102,14 @@ function FormPageSignup() {
                             placeholder="Password"
                             required
                         />
-                        <div className="add-file-on-signup">
+                        {/* <div className="add-file-on-signup">
                             <input
                                 className="add-file-input-signup"
                                 type="file"
                                 value={image}
                                 onChange={addImage}
                             />
-                        </div>
+                        </div> */}
                     </div>
 
                     <button className="submit-signup-button" type="submit">

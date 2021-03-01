@@ -72,7 +72,7 @@ function AddPet() {
                         onSubmit={handleSubmit}
                     >
                         <div className="name-container">
-                            <label>name</label>
+                            <label className="x">name</label>
                             <input
                                 className="name-input"
                                 type="text"
@@ -82,12 +82,12 @@ function AddPet() {
                                 required
                             />
                             <div className="activity-add-title">
-                                __________________
+                                ___________________________________
                             </div>
                         </div>
 
                         <div className="breed-container">
-                            <label>breed</label>
+                            <label className="x">breed</label>
                             <input
                                 className="breed-input"
                                 type="text"
@@ -97,12 +97,12 @@ function AddPet() {
                                 required
                             />
                             <div className="activity-add-title">
-                                __________________
+                                ___________________________________
                             </div>
                         </div>
 
                         <div className="birthday-container">
-                            <label>birthday</label>
+                            <label className="x">birthday</label>
                             <input
                                 className="birthday-input"
                                 type="text"
@@ -112,14 +112,19 @@ function AddPet() {
                                 required
                             />
                             <div className="activity-add-title">
-                                __________________
+                                ___________________________________
                             </div>
                         </div>
 
-                        <button className="add-pet-button" type="submit">
+                        <button className="activity-button" type="submit">
                             Add Pet
                         </button>
-                        <button onClick={toggleModal}>Cancel</button>
+                        <button
+                            className="activity-button"
+                            onClick={toggleModal}
+                        >
+                            Cancel
+                        </button>
                     </form>
                 </div>
             </Modal>

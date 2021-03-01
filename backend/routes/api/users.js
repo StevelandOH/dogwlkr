@@ -1,13 +1,10 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { setTokenCookie } = require('../../utils/auth');
-const { User } = require('../../db/models');
-
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-
-const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -15,42 +12,35 @@ const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
         .isEmail()
-        .withMessage("They're telling us you made that email up, try again..."),
+        .withMessage('Please provide a valid email.'),
     check('username')
         .exists({ checkFalsy: true })
         .isLength({ min: 4 })
-        .withMessage(
-            "It may sound petty, but we're going to ask that you're lovely username is longer than four characters ...would've been a cool name though."
-        ),
+        .withMessage('Please provide a username with at least 4 characters.'),
     check('username')
         .not()
         .isEmail()
-        .withMessage(
-            "Robot Gods say, 'username cannot be an email', we're sorry about that..."
-        ),
+        .withMessage('Username cannot be an email.'),
     check('password')
         .exists({ checkFalsy: true })
         .isLength({ min: 6 })
-        .withMessage(
-            "Let's step up our password game a touch... like at least longer than six characters.."
-        ),
+        .withMessage('Password must be 6 characters or more.'),
     handleValidationErrors,
 ];
 
 router.post(
     '/',
-    singleMulterUpload('image'),
     validateSignup,
     asyncHandler(async (req, res) => {
-        const { email, password, username } = req.body;
-        const imgUrl = await singlePublicFileUpload(req.file);
+        const { email, username, password } = req.body;
         const user = await User.signup({
             email,
             username,
             password,
-            imgUrl: imgUrl,
         });
-        setTokenCookie(res, user);
+
+        await setTokenCookie(res, user);
+
         return res.json({
             user,
         });

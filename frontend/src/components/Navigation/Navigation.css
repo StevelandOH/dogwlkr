@@ -40,8 +40,8 @@
 
 .home-link {
     color: #fc4c02;
-    font-size: 20pt;
-    font-weight: bold;
+    font-size: 28pt;
+    font-weight: bolder;
     text-decoration: none;
 }
 
@@ -118,38 +118,42 @@
 
 .modal-container {
     z-index: 1000;
-    margin-top: 20px;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-top: 40px;
+    width: 800px;
+    margin-left: 30%;
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
     border-radius: 0.25em;
-    align-items: center;
+
     box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
     padding: 10px;
 }
 
 .modal-container-pet {
     z-index: 1000;
-    width: 300px;
+    width: 450px;
     margin-top: 100px;
-    margin-left: 40%;
-    margin-right: 40%;
+    margin-left: 30%;
+
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
     border-radius: 0.25em;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
 }
 
-.modal-container::placeholder {
-    color: black;
+.name-input,
+.breed-input,
+.birthday-input {
+    height: 35px;
+    width: 250px;
+    margin-top: 10px;
 }
 
 .a {
     margin-top: 10px;
     height: 30px;
-    width: 75%;
+    width: 60%;
     border: none;
     box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
     text-align: center;
@@ -167,7 +171,7 @@
 .notes-container,
 .activity-button {
     margin-top: 10px;
-    font-size: 10pt;
+    font-size: 12pt;
 }
 
 .activity-add-title,
@@ -175,4 +179,18 @@
     color: #fc4c02;
     margin: 10px;
     /* margin-top: 20px; */
+}
+
+.activity-button {
+    height: 50px;
+    width: 275px;
+    background-color: #fc4c02;
+    border: 2px solid #fc4c02;
+    border-radius: 0.25em;
+    color: white;
+    font-size: 18px;
+}
+
+.x {
+    margin-right: 10px;
 }

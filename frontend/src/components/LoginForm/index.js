@@ -40,9 +40,6 @@ function FormPageLogin({}) {
                         ))}
                     </ul>
                     <div className="email-container">
-                        <label className="email-label">
-                            ... or log in with username
-                        </label>
                         <input
                             placeholder="Your Email"
                             className="email-input"

@@ -38,8 +38,8 @@ function ProfilePage() {
     }, [dispatch, sessionUser?.id]);
 
     if (!sessionUser) return null;
-    if (!routes) return null;
-    if (!pets) return null;
+    if (!routes || routes === '') return null;
+    if (!pets || pets === '') return null;
 
     return (
         <div className="profile-flex-container">

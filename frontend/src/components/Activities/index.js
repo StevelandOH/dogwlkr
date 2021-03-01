@@ -27,7 +27,7 @@ function ActivitiesDisplayPage({}) {
     useEffect(() => {
         setSortColumn('date');
         setData(act);
-        setSortType('dec');
+        setSortType('desc');
     }, [dispatch, activities, sessionUser]);
 
     const style = {

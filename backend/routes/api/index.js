@@ -11,8 +11,4 @@ router.use('/routes', routesRouter);
 router.use('/activities', activitiesRouter);
 router.use('/pets', petsRouter);
 
-router.post('/test', function (req, res) {
-    res.json({ requestBody: req.body });
-});
-
 module.exports = router;

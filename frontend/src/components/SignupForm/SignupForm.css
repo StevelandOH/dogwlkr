@@ -12,8 +12,8 @@
     color: white;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
-    height: 500px;
-    width: 375px;
+    height: 600px;
+    width: 425px;
     display: inline-block;
     margin: 50px 50px 50px 50px;
     position: relative;
@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.6);
-    width: 375px;
+    width: 425px;
     height: 125px;
 }
 
@@ -36,8 +36,8 @@
     color: white;
     background-color: black;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    margin: 10px;
-    height: 40px;
+    margin: 15px;
+    height: 50px;
     width: 275px;
     text-align: left;
     border-radius: 0.25em;
@@ -46,7 +46,7 @@
 
 .submit-signup-button {
     margin: 10px;
-    height: 40px;
+    height: 50px;
     width: 275px;
     background-color: #fc4c02;
     border: 2px solid #fc4c02;

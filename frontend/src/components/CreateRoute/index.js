@@ -116,7 +116,7 @@ function RouteCreatePage() {
                             </p>
                         </div>
                         <button type="submit" className="submit-route">
-                            SUBMIT
+                            Create
                         </button>
                     </form>
                 </div>

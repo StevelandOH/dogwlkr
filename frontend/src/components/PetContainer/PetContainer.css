@@ -8,10 +8,11 @@
     border: 1px solid black;
     border-radius: 3em;
     background-color: rgb(253, 235, 227);
-    margin-left: 25%;
-    margin: 20px 25% 20px 25%;
-    margin-right: 25%;
+
+    margin: 30px 25% 30px 25%;
+
     box-shadow: 0px 5px 5px 4px rgba(252, 76, 2, 0.4);
+    height: 435px;
 }
 
 .pet-title,

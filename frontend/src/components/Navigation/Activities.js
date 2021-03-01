@@ -118,7 +118,7 @@ function ActivityDropdown() {
                     <form onSubmit={handleSubmit}>
                         {/* <div className='left-half' */}
                         <div className="which-pet-container">
-                            <label>tell us your dogs name</label>
+                            <label className="x">tell us your dogs name</label>
                             <input
                                 className="which-pet-input a"
                                 type="text"
@@ -129,10 +129,12 @@ function ActivityDropdown() {
                             />
                         </div>
                         <div className="activity-add-title">
-                            ___________________________________________________
+                            _______________________________________________________________________________
                         </div>
                         <div className="type-container">
-                            <label>what type of activity was it</label>
+                            <label className="x">
+                                what type of activity was it
+                            </label>
                             <input
                                 className="type-input a"
                                 type="text"
@@ -143,10 +145,10 @@ function ActivityDropdown() {
                             />
                         </div>
                         <div className="activity-add-title">
-                            ___________________________________________________
+                            _______________________________________________________________________________
                         </div>
                         <div className="date-container">
-                            <label>what was the date</label>
+                            <label className="x">what was the date</label>
                             <input
                                 className="date-input a"
                                 type="text"
@@ -157,10 +159,10 @@ function ActivityDropdown() {
                             />
                         </div>
                         <div className="activity-add-title">
-                            ___________________________________________________
+                            _______________________________________________________________________________
                         </div>
                         <div className="time-container">
-                            <label>and what was the time</label>
+                            <label className="x">and what was the time</label>
                             <input
                                 className="time-input a"
                                 type="text"
@@ -171,10 +173,10 @@ function ActivityDropdown() {
                             />
                         </div>
                         <div className="activity-add-title">
-                            ___________________________________________________
+                            _______________________________________________________________________________
                         </div>
                         <div className="actDistance-container">
-                            <label>how far did yall go</label>
+                            <label className="x">how far did yall go</label>
                             <input
                                 className="actDistance-input a"
                                 type="text"
@@ -185,7 +187,7 @@ function ActivityDropdown() {
                         </div>
                         <div className="or">or</div>
                         <div className="focus-container">
-                            <label>
+                            <label className="x">
                                 what was the focus of the training session
                             </label>
                             <input
@@ -197,10 +199,12 @@ function ActivityDropdown() {
                             />
                         </div>
                         <div className="activity-add-title">
-                            ___________________________________________________
+                            _______________________________________________________________________________
                         </div>
                         <div className="duration-container">
-                            <label>how long did yall go for</label>
+                            <label className="x">
+                                how long did yall go for
+                            </label>
                             <input
                                 className="duration-input a"
                                 type="text"
@@ -210,10 +214,10 @@ function ActivityDropdown() {
                             />
                         </div>
                         <div className="activity-add-title">
-                            ___________________________________________________
+                            _______________________________________________________________________________
                         </div>
                         <div className="notes-container">
-                            <label>any additional notes</label>
+                            <label className="x">any additional notes</label>
                             <textarea
                                 className="notes-input a"
                                 value={notes}
@@ -222,12 +226,18 @@ function ActivityDropdown() {
                             />
                         </div>
                         <div className="activity-add-title">
-                            ___________________________________________________
+                            _______________________________________________________________________________{' '}
                         </div>
                         <button className="activity-button " type="submit">
                             Add Activity
                         </button>
-                        <button onClick={toggleModal}>Cancel</button>
+                        <div></div>
+                        <button
+                            className="activity-button"
+                            onClick={toggleModal}
+                        >
+                            Cancel
+                        </button>
                     </form>
                 </div>
             </Modal>

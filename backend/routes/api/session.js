@@ -11,12 +11,10 @@ const validateLogin = [
     check('credential')
         .exists({ checkFalsy: true })
         .notEmpty()
-        .withMessage(
-            "...Just heard from the boss and.. uh, we're going to need a genuine email or username..."
-        ),
+        .withMessage('Please provide a valid email or username.'),
     check('password')
         .exists({ checkFalsy: true })
-        .withMessage('Got something against passwords?'),
+        .withMessage('Please provide a password.'),
     handleValidationErrors,
 ];
 
@@ -36,11 +34,9 @@ router.post(
             return next(err);
         }
 
-        await setTokenCookie(res, user);
+        setTokenCookie(res, user);
 
-        return res.json({
-            user,
-        });
+        return res.json({ user });
     })
 );
 

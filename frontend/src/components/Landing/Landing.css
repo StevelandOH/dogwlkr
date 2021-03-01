@@ -4,15 +4,45 @@
     background-color: black;
     height: 950px;
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-top: 50px;
 }
 
 .landing {
     color: black;
-    font-size: 28pt;
+    font-size: 52pt;
     font-weight: bolder;
-    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-width: 0.1px;
     -webkit-text-stroke-color: white;
-    margin-top: 150px;
+    margin-top: 40px;
+}
+
+.button-container {
+    text-align: center;
+    padding: 50px;
+    width: 450px;
+    height: 400px;
+}
+
+.landing-button {
+    font-size: 13pt;
+    height: 75px;
+    width: 350px;
+    margin-top: 20px;
+}
+
+.line {
+    color: #fc4c02;
+    font-size: 40pt;
+    margin-bottom: 10px;
+}
+
+.member {
+    margin-top: 50px;
+}
+
+.under-line {
+    font-size: 14pt;
 }

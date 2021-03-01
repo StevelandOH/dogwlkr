@@ -11,35 +11,38 @@
     margin-left: 10px;
     background-color: rgba(255, 255, 255, 0.7);
     color: white;
-    height: 250px;
-    width: 200px;
+    height: 350px;
+    width: 300px;
     border-radius: 0.25em;
     align-items: center;
+    text-align: center;
     box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
 }
 .title-container,
 .description-container {
     color: black;
     text-align: center;
-    margin: 10px;
+    margin: 20px;
 }
 
 .title-input {
-    width: 100px;
-    border: none;
-    box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
-    text-align: center;
-    color: lightgray;
-    border-radius: 0.25em;
-}
-
-.description-input {
     width: 150px;
     border: none;
     box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
     text-align: center;
     color: lightgray;
     border-radius: 0.25em;
+    font-size: 14pt;
+}
+
+.description-input {
+    width: 200px;
+    border: none;
+    height: 150px;
+    box-shadow: 0px 0px 5px 5px rgba(219, 218, 218, 0.7);
+    text-align: center;
+    border-radius: 0.25em;
+    font-size: 14pt;
 }
 
 .description-container ::placeholder,
@@ -49,6 +52,16 @@
 }
 
 .distance-text {
-    font-size: 12px;
+    font-size: 16pt;
     color: black;
+}
+
+.submit-route {
+    height: 50px;
+    width: 275px;
+    background-color: #fc4c02;
+    border: 2px solid #fc4c02;
+    border-radius: 0.25em;
+    color: white;
+    font-size: 18px;
 }

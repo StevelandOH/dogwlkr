@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 function PetContainer({ pet, photo }) {
+    console.log(pet);
     return (
         <div className="pet-container">
             <h3 className="pet-title">{pet.name}</h3>

@@ -7,11 +7,12 @@
 
 .user-container {
     border: 1px solid black;
+    height: 435px;
     border-radius: 3em;
     background-color: rgb(253, 235, 227);
-    margin-left: 25%;
-    margin: 20px 25% 20px 25%;
-    margin-right: 25%;
+
+    margin: 30px 25% 30px 25%;
+
     box-shadow: -5px 5px 5px 3px rgba(252, 76, 2, 0.5);
 }
 
