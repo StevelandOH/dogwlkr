@@ -96,17 +96,24 @@ function ActivitiesDisplayPage({}) {
                     <HeaderCell></HeaderCell>
                     <Cell>
                         {(rowData) => {
-                            function handleAction() {
-                                alert(`id:${rowData.id}`);
+                            function handleEditAction() {
+                                alert(
+                                    `Will edit activity with the id of ${rowData.id}`
+                                );
+                            }
+                            function handleTrashAction() {
+                                alert(
+                                    `Will delete activity with the id of ${rowData.id}`
+                                );
                             }
                             return (
                                 <span>
-                                    <a onClick={handleAction}>
+                                    <a onClick={handleEditAction}>
                                         {' '}
                                         <i className="far fa-edit"></i>
                                     </a>{' '}
                                     |
-                                    <a onClick={handleAction}>
+                                    <a onClick={handleTrashAction}>
                                         {' '}
                                         <i className="fas fa-trash-alt"></i>
                                     </a>{' '}

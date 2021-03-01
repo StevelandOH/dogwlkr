@@ -38,7 +38,7 @@ function Navigation() {
             <nav className="nav-logged-out">
                 <div className="home-link-container">
                     <NavLink className="home-link" exact to="/">
-                        Dogwlkr
+                        DOGWLKR
                     </NavLink>
                 </div>
             </nav>

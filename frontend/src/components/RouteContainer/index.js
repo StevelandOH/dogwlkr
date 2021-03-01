@@ -1,6 +1,13 @@
 import './RouteContainer.css';
 
 function RouteContainer({ route, map, photo }) {
+    function handleEditAction() {
+        alert(`Will edit activity with the id of ${route.id}`);
+    }
+    function handleTrashAction() {
+        alert(`Will delete activity with the id of ${route.id}`);
+    }
+
     return (
         <div className="route-container">
             <div>
@@ -10,12 +17,12 @@ function RouteContainer({ route, map, photo }) {
                 <div className="route-distance">{`${route.distance} mi`}</div>
                 <div className="route-description">{route.description}</div>
                 <div className="route-edit-delete">
-                    <a onClick={() => console.log('clicked edit')}>
+                    <a onClick={handleTrashAction}>
                         {' '}
                         <i className="far fa-edit"></i>
                     </a>{' '}
                     |
-                    <a onClick={() => console.log('clicked delete')}>
+                    <a onClick={handleTrashAction}>
                         {' '}
                         <i className="fas fa-trash-alt"></i>
                     </a>{' '}
