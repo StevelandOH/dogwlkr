@@ -55,10 +55,10 @@ function ActivitiesDisplayPage({}) {
                 let n = a[sortColumn];
                 let s = b[sortColumn];
                 if (typeof n === 'string') {
-                    n = n.charCodeAt();
+                    n = n.charCodeAt(0);
                 }
                 if (typeof s === 'string') {
-                    s = s.charCodeAt();
+                    s = s.charCodeAt(0);
                 }
                 if (sortType === 'asc') {
                     return n - s;
