@@ -101,11 +101,12 @@
 }
 
 .logout-button {
-    border: none;
-    color: grey;
-    margin-top: 0px;
-    border-radius: 10em 10em 10em 0em;
-    height: 30px;
+    background-color: #fc4c02;
+    border: 2px solid #fc4c02;
+    border-radius: 0.25em;
+    color: white;
+    height: 50px;
+    width: 100px;
 }
 
 .link-container {
