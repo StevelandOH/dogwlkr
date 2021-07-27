@@ -32,24 +32,24 @@ function FormPageSignup() {
         history.push('/profile');
     };
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log(username, email, password);
-    //     let newErrors = [];
-    //     dispatch(createUser({ username, email, password }))
-    //         .then(() => {
-    //             setUsername('');
-    //             setEmail('');
-    //             setPassword('');
-    //         })
-    //         .catch(async (res) => {
-    //             const data = await res.json();
-    //             if (data && data.errors) {
-    //                 newErrors = data.errors;
-    //                 setErrors(newErrors);
-    //             }
-    //         });
-    // };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(username, email, password);
+        let newErrors = [];
+        dispatch(createUser({ username, email, password }))
+            .then(() => {
+                setUsername('');
+                setEmail('');
+                setPassword('');
+            })
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) {
+                    newErrors = data.errors;
+                    setErrors(newErrors);
+                }
+            });
+    };
 
     return (
         <div className="signup-page">

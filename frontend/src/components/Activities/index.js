@@ -92,6 +92,7 @@ function ActivitiesDisplayPage({}) {
                 loading={loading}
                 onRowClick={(data) => setItem(data)}
             >
+                {console.log(data)}
                 <Column width={100} fixed="left">
                     <HeaderCell></HeaderCell>
                     <Cell>
